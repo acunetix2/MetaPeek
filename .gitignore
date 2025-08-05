@@ -1,0 +1,78 @@
+# ----------------------
+# 📁 Node & Package Files
+# ----------------------
+node_modules/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+
+
+# ----------------------
+# 🔨 Build Artifacts
+# ----------------------
+dist/
+dist-ssr/
+*.local
+*.env.local
+*.env.*.local
+.env.*.backup
+.env
+
+# ----------------------
+# 🚀 Vercel / Netlify / Build Platforms
+# ----------------------
+.vercel/
+.netlify/
+output/
+
+# ----------------------
+# 📓 Logs
+# ----------------------
+logs/
+*.log
+*.tsbuildinfo
+
+# ----------------------
+# 🧠 IDE / Editor Stuff
+# ----------------------
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ----------------------
+# 🧼 OS Generated Files
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# 🔐 Clerk (Auth) — if storing local dev secrets
+# ----------------------
+.clerk/
+
+# ----------------------
+# 🧪 Testing
+# ----------------------
+coverage/
+*.test.ts
+*.test.js
+*.spec.js
+*.spec.ts
+jest.config.js
+.vitest/
+
+# ----------------------
+# 💅 Misc
+# ----------------------
+*.bak
+*.tmp
+*.orig
