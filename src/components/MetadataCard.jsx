@@ -5,10 +5,19 @@ import { Separator } from "@/components/ui/separator";
 import { InfoIcon, ClipboardCopy } from "lucide-react";
 
 export default function MetadataCard({ metadata }) {
-  if (!metadata) return null;
+  if (!metadata || typeof metadata !== "object") return null;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(JSON.stringify(metadata, null, 2));
+    const formatted = Object.entries(metadata)
+      .map(([key, value]) => `${key}: ${formatValue(value)}`)
+      .join("\n");
+    navigator.clipboard.writeText(formatted);
+  };
+
+  const formatValue = (value) => {
+    if (value === null || value === undefined || value === "") return "None";
+    if (Array.isArray(value)) return value.length ? value.join(", ") : "None";
+    return String(value);
   };
 
   return (
@@ -20,7 +29,7 @@ export default function MetadataCard({ metadata }) {
         </div>
         <button
           onClick={handleCopy}
-          title="Copy to clipboard"
+          title="Copy all metadata"
           className="text-sm text-blue-500 hover:underline flex items-center gap-1"
         >
           <ClipboardCopy className="w-4 h-4" />
@@ -30,9 +39,16 @@ export default function MetadataCard({ metadata }) {
       <Separator />
       <CardContent className="p-4">
         <ScrollArea className="h-64 w-full pr-4">
-          <pre className="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-wrap">
-            {JSON.stringify(metadata, null, 2)}
-          </pre>
+          <ul className="text-sm space-y-2">
+            {Object.entries(metadata).map(([key, value]) => (
+              <li key={key}>
+                <span className="font-medium">{key}:</span>{" "}
+                <span className="text-gray-700 dark:text-gray-300">
+                  {formatValue(value)}
+                </span>
+              </li>
+            ))}
+          </ul>
         </ScrollArea>
       </CardContent>
     </Card>
