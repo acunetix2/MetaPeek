@@ -24,7 +24,7 @@ export default function UploadArea({ onImageSelect }) {
         onChange={handleFileChange}
         className="cursor-pointer"
       />
-      <Button onClick={() => fileRef.current?.click()}>Upload Image</Button>
+      <Button onClick={() => fileRef.current?.click()}>Upload</Button>
     </div>
   );
 }

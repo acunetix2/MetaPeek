@@ -1,15 +1,16 @@
 import React from "react";
+import { Link, useLocation, Outlet } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import Footer from "@/components/Footer";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout() {
   const [isDark, setIsDark] = React.useState(false);
+  const location = useLocation();
 
   React.useEffect(() => {
     const stored = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldUseDark = stored === "dark" || (!stored && prefersDark);
-
     setIsDark(shouldUseDark);
     document.documentElement.classList.toggle("dark", shouldUseDark);
   }, []);
@@ -22,51 +23,46 @@ export default function DashboardLayout({ children }) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      {/* Navbar */}
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-green-700 dark:text-green-300 flex flex-col">
       <header className="bg-white dark:bg-gray-800 shadow px-4 sm:px-6 py-4 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Brand */}
-          <h1 className="text-2xl font-bold text-orange-600 dark:text-orange-400">MetaPeek</h1>
-
-          {/* Nav Buttons */}
+          <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">METAPEEK</h1>
           <nav className="hidden md:flex gap-4">
-            <a
-              href="/"
-              className="px-4 py-2 rounded-xl bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-800 transition font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="/about"
-              className="px-4 py-2 rounded-xl bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-800 transition font-medium"
-            >
-              About
-            </a>
-            <a
-              href="/docs"
-              className="px-4 py-2 rounded-xl bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-800 transition font-medium"
-            >
-              Docs
-            </a>
+            {["Home", "About", "Docs"].map((label) => {
+              const path = `/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
+              const isActive = location.pathname === path;
+              return (
+                <Link
+                  key={label}
+                  to={path}
+                  className={`px-4 py-2 rounded-xl font-medium transition ${
+                    isActive
+                      ? "bg-green-300 dark:bg-green-800 text-green-900 dark:text-green-100"
+                      : "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
-
-          {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+            className="ml-4 p-2 rounded-full bg-green-200 dark:bg-green-700 hover:bg-green-300 dark:hover:bg-green-600 transition"
             aria-label="Toggle Dark Mode"
           >
-            {isDark ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-gray-800" />}
+            {isDark ? (
+              <Sun className="w-5 h-5 text-green-100" />
+            ) : (
+              <Moon className="w-5 h-5 text-green-900" />
+            )}
           </button>
         </div>
       </header>
-
-      {/* Main Content */}
-      <main className="px-4 py-8 md:px-10 max-w-7xl mx-auto">
-        {children}
+      <main className="flex-grow px-4 py-8 md:px-10 max-w-7xl mx-auto">
+        <Outlet />
       </main>
-	  <Footer />
+      <Footer />
     </div>
   );
 }
