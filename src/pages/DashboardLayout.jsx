@@ -1,0 +1,1 @@
+import NavBar from '@/components/Navbar'

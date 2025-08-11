@@ -31,7 +31,7 @@ export default function MetadataCard({ metadata }) {
       {/* Notification bar */}
       {copied && (
         <div className="absolute top-0 left-0 right-0 z-10 bg-green-500 text-white text-sm font-medium text-center py-2 rounded-t-md animate-slide-down">
-          ✅ Details copied successfully
+          Details copied successfully
         </div>
       )}
 
@@ -39,7 +39,7 @@ export default function MetadataCard({ metadata }) {
         <CardHeader className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-lg font-semibold">
             <InfoIcon className="w-5 h-5 text-orange-500" />
-            <span>Image Metadata</span>
+            <span>Image Information</span>
           </div>
           <button
             onClick={handleCopy}

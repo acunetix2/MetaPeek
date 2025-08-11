@@ -4,7 +4,7 @@ import { InfoIcon } from "lucide-react";
 export default function About() {
   const developer = {
     name: "Iddy K. Chesire",
-    role: "Application Security Engineer & Full-Stack Developer",
+    role: "CyberSecurity Analyst & MERN Stack Developer",
     bio: "Iddy is passionate about building secure, user-friendly tools that empower users through privacy-respecting technologies. He led the development of MetaPeek, ensuring seamless metadata extraction, intuitive UI, and airtight security from browser to storage.",
     image: "https://api.dicebear.com/7.x/initials/svg?seed=Iddy%20Chesire",
   };
@@ -44,9 +44,9 @@ export default function About() {
         <img
           src={developer.image}
           alt={developer.name}
-          className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-orange-400 dark:border-orange-500"
+          className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-orange-400 dark:border-green-500"
         />
-        <h2 className="text-2xl font-bold text-orange-600 dark:text-orange-400">{developer.name}</h2>
+        <h2 className="text-2xl font-bold text-green-600 dark:text-green-400">{developer.name}</h2>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">{developer.role}</p>
         <p className="text-gray-600 dark:text-gray-400">{developer.bio}</p>
       </div>
