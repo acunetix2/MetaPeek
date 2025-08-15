@@ -21,7 +21,7 @@ export default function Navbar() {
     <header className="bg-white dark:bg-gray-900 shadow sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-green-600 dark:text-green-400">
-          MetaPeek
+          METAPEEK
         </Link>
 
         <nav className="space-x-2 hidden sm:block">
