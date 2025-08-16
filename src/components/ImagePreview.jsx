@@ -17,9 +17,9 @@ export default function ImagePreview({ imageUrl, imageName }) {
         <CardContent className="p-4">
           <img
             src={imageUrl}
-            alt="Uploaded preview"
+            alt={imageName || "Uploaded preview"}
             className="rounded-md w-full object-contain"
-            onError={(e) => (e.target.style.display = "none")}
+            onError={(e) => (e.currentTarget.style.display = "none")}
           />
         </CardContent>
       </Card>

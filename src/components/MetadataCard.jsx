@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { InfoIcon, ClipboardCopy } from "lucide-react";
 
@@ -16,7 +15,7 @@ export default function MetadataCard({ metadata }) {
 
     navigator.clipboard.writeText(formatted).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 3000); // Hide after 3 seconds
+      setTimeout(() => setCopied(false), 3000);
     });
   };
 
@@ -27,8 +26,7 @@ export default function MetadataCard({ metadata }) {
   };
 
   return (
-    <div className="relative w-full max-w-2xl">
-      {/* Notification bar */}
+    <div className="relative w-full">
       {copied && (
         <div className="absolute top-0 left-0 right-0 z-10 bg-green-500 text-white text-sm font-medium text-center py-2 rounded-t-md animate-slide-down">
           Details copied successfully
@@ -52,18 +50,18 @@ export default function MetadataCard({ metadata }) {
         </CardHeader>
         <Separator />
         <CardContent className="p-4">
-          <ScrollArea className="h-64 w-full pr-4">
-            <ul className="text-sm space-y-2">
-              {Object.entries(metadata).map(([key, value]) => (
-                <li key={key}>
-                  <span className="font-medium">{key}:</span>{" "}
-                  <span className="text-gray-700 dark:text-gray-300">
-                    {formatValue(value)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </ScrollArea>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {Object.entries(metadata).map(([key, value]) => (
+              <div key={key} className="flex flex-col">
+                <span className="font-medium text-gray-800 dark:text-gray-200">
+                  {key}
+                </span>
+                <span className="text-green-500 break-all">
+                  {formatValue(value)}
+                </span>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>
