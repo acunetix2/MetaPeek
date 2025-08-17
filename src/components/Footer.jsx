@@ -114,8 +114,8 @@ export default function Footer() {
 			<a href="/terms" className="hover:text-green-500 transition">Terms</a>
 			<a href="/security" className="hover:text-green-500 transition">Security</a>
 		  </div>
-		  <p className="text-center md:text-right">
-			&copy; {new Date().getFullYear()} MetaPeek. All rights reserved.
+		  <p className="text-center md:text-right text-green-600">
+			Copyright &copy; {new Date().getFullYear()} MetaPeek | All rights reserved.
 		  </p>
 		</div>
       </footer>

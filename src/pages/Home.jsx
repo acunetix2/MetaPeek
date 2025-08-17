@@ -209,14 +209,14 @@ export default function HomePage() {
                   onClick={handleScanClick}
                   className="w-[200px] px-4 py-2 bg-green-600 hover:bg-blue-700 text-white font-medium rounded-xl"
                 >
-                  {scanning ? "Scanning..." : "Display Details"}
+                  {scanning ? "Scanning..." : "Run"}
                 </button>
               ) : (
                 <button
                   onClick={handleClear}
                   className="w-[200px] px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-xl"
                 >
-                  Clear Image
+                  Clear
                 </button>
               )}
               {showMetadata && (

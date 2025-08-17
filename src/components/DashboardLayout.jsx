@@ -27,17 +27,23 @@ export default function DashboardLayout() {
   return (
     <SignedIn>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-green-700 dark:text-green-300 flex flex-col">
-        <header className="bg-white dark:bg-gray-800 shadow px-4 sm:px-6 py-8 sticky top-0 z-50">
+	  <div className="h-2 bg-gradient-to-r from-green-700 via-blue-500 to-pink-600 dark:from-green-900 dark:via-blue-700 dark:to-green-800" />
+        <header className="bg-white dark:bg-gray-800 shadow px-4 sm:px-6 py-2 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2">
               <img
                 src={logo}
                 alt="Metapeek Logo"
-                className="w-10 h-10 rounded-full shadow-md"
+                className="w-8 h-8 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-130"
               />
-              <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
-                METAPEEK
-              </h1>
+			<h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
+			  METAPEEK
+			  <sup>
+				<span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-gray-400 dark:border-gray-600 text-[8px] font-bold ml-1">
+				  ™
+				</span>
+			  </sup>
+			</h1>
             </div>
             <nav className="hidden md:flex gap-4">
               {["Home", "About", "Docs"].map((label) => {
@@ -77,9 +83,9 @@ export default function DashboardLayout() {
 			<span className="mx-6">•</span>
 			<span>Secure Metadata Extraction</span>
 			<span className="mx-6">•</span>
-			<span>Powered by Iddy</span>
+			<span>Powered by MetaPeek</span>
 			<span className="mx-6">•</span>
-			<span>Works Everywhere</span>
+			<span>See beyond just graphics</span>
           </div>
         </div>
 

@@ -138,4 +138,9 @@
     transform: translateX(-100%);
   }
 }
-
+@font-face {
+  font-family: 'Phosire';
+  src: url('/fonts/Phosire.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
