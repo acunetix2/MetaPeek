@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { SignedIn, SignedOut, RedirectToSignIn, UserButton } from "@clerk/clerk-react";
 import logo from "@/assets/logo.png";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export default function DashboardLayout() {
   const [isDark, setIsDark] = useState(false);
@@ -139,6 +140,7 @@ export default function DashboardLayout() {
 
         <Footer />
 		<Analytics />
+		<SpeedInsights />
       </div>
 
       <SignedOut>
