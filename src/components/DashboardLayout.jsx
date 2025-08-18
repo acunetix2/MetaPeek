@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
 import { SignedIn, SignedOut, RedirectToSignIn, UserButton } from "@clerk/clerk-react";
 import logo from "@/assets/logo.png";
 
 export default function DashboardLayout() {
-  const [isDark, setIsDark] = React.useState(false);
+  const [isDark, setIsDark] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   React.useEffect(() => {
@@ -24,13 +25,16 @@ export default function DashboardLayout() {
     localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
+  const navLinks = ["Home", "About", "Docs"];
+
   return (
     <SignedIn>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-green-700 dark:text-green-300 flex flex-col">
         <div className="h-2 bg-gradient-to-r from-green-700 via-blue-500 to-pink-600 dark:from-green-900 dark:via-blue-700 dark:to-green-800" />
-        
+
         <header className="bg-white dark:bg-gray-800 shadow px-4 sm:px-6 py-2 sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            {/* Logo and title */}
             <div className="flex items-center gap-2 flex-wrap">
               <img
                 src={logo}
@@ -47,8 +51,9 @@ export default function DashboardLayout() {
               </h1>
             </div>
 
-            <nav className="hidden md:flex gap-2 md:gap-4 flex-wrap mt-2 md:mt-0">
-              {["Home", "About", "Docs"].map((label) => {
+            {/* Desktop nav */}
+            <nav className="hidden md:flex gap-2 md:gap-4 flex-wrap">
+              {navLinks.map((label) => {
                 const path = `/app/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
                 const isActive = location.pathname === path;
                 return (
@@ -67,7 +72,8 @@ export default function DashboardLayout() {
               })}
             </nav>
 
-            <div className="flex items-center gap-2 sm:gap-4 mt-2 md:mt-0">
+            {/* Theme + User + Mobile menu button */}
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full bg-green-200 dark:bg-green-700 hover:bg-green-300 dark:hover:bg-green-600 transition"
@@ -75,9 +81,43 @@ export default function DashboardLayout() {
               >
                 {isDark ? <Sun className="w-5 h-5 text-green-100" /> : <Moon className="w-5 h-5 text-green-900" />}
               </button>
+
               <UserButton />
+
+              {/* Mobile menu toggle */}
+              <button
+                className="md:hidden p-2 rounded-full bg-green-200 dark:bg-green-700 hover:bg-green-300 dark:hover:bg-green-600 transition"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle Menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5 text-green-900 dark:text-green-100" /> : <Menu className="w-5 h-5 text-green-900 dark:text-green-100" />}
+              </button>
             </div>
           </div>
+
+          {/* Mobile nav */}
+          {mobileMenuOpen && (
+            <nav className="md:hidden mt-2 flex flex-col gap-2 bg-green-50 dark:bg-gray-800 rounded-xl p-2">
+              {navLinks.map((label) => {
+                const path = `/app/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
+                const isActive = location.pathname === path;
+                return (
+                  <Link
+                    key={label}
+                    to={path}
+                    className={`px-3 py-2 rounded-xl font-medium text-base transition ${
+                      isActive
+                        ? "bg-green-300 dark:bg-green-800 text-green-900 dark:text-green-100"
+                        : "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
+            </nav>
+          )}
         </header>
 
         <div className="ticker-bar bg-gradient-to-r from-green-600 via-blue-500 to-pink-500 text-white dark:from-green-800 dark:via-blue-700 dark:to-pink-700 h-6 sm:h-5 overflow-hidden flex items-center sticky top-[72px] z-40">
