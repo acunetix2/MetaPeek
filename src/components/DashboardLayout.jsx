@@ -4,7 +4,7 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
 import { SignedIn, SignedOut, RedirectToSignIn, UserButton } from "@clerk/clerk-react";
 import logo from "@/assets/logo.png";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function DashboardLayout() {
   const [isDark, setIsDark] = useState(false);
