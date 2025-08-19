@@ -190,7 +190,7 @@ export default function LandingPage() {
           {[
             {
               title: "Deep Metadata Parsing",
-              desc: "EXIF, IPTC, XMP, ICC profiles, camera/lens details, time, GPS, and edit traces.",
+              desc: "Image EXIF profile, camera/lens details, time, GPS, and edit traces among other details.",
               Icon: FileSearch,
             },
             {
