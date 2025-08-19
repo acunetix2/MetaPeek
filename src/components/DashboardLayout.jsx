@@ -54,7 +54,7 @@ export default function DashboardLayout() {
             </div>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex gap-6 items-center">
+            <nav className="hidden md:flex text-gray-100 gap-6 items-center">
               {navLinks.map((label) => {
                 const path = `/app/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
                 const isActive = location.pathname === path;
