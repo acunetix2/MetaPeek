@@ -248,14 +248,12 @@ export default function LandingPage() {
               points: [
                 "Drag & drop images or select from device.",
                 "Supports common formats (JPEG, PNG, TIFF, WebP).",
-                "Optional: add case tags or notes.",
               ],
             },
             {
               step: "2",
               title: "Sanitize & Hash",
               points: [
-                "Compute SHA-256 for audit trail.",
                 "Validate file type & integrity.",
                 "Securely stage for local analysis.",
               ],
