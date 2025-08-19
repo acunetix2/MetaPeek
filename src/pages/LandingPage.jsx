@@ -329,10 +329,7 @@ export default function LandingPage() {
             <p className="mb-6">
               Uncover hidden details, detect anomalies, and gain actionable
               insights from images.
-            </p>
-            <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
-              Get Started
-            </button>
+            </p>  
           </div>
 
           {/* Company */}
@@ -430,7 +427,7 @@ export default function LandingPage() {
                 <FaLinkedin />
               </a>
               <a
-                href="https://github.com/metapeek"
+                href="https://github.com/acunetix2/metapeek"
                 target="_blank"
                 className="hover:text-green-500 transition"
               >
