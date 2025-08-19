@@ -1,6 +1,6 @@
 # Metapeek
 
-![Metapeek Logo](./src/assets/logo.png)
+<img src="./src/assets/logo.png" alt="Metapeek Logo" width="200" />
 
 Metapeek is a cutting-edge **image forensics and metadata analysis platform** designed to help users extract, inspect, and visualize metadata from images and media files. It offers an intuitive interface for both technical and non-technical users to perform detailed image analysis, verify authenticity, and gain insights from embedded metadata.
 
@@ -21,13 +21,13 @@ Metapeek is a cutting-edge **image forensics and metadata analysis platform** de
 
 ## Screenshots
 
-![Upload Area](./src/assets/screenshot1.png)
+<img src="./src/assets/screenshot1.png" alt="metapeek" width="400" />
 
-![Metadata Viewer](./src/assets/screenshot2.png)
+<img src="./src/assets/screenshot2.png" alt="metapeek" width="400" />
 
-![Map Viewer](./src/assets/screenshot3.png)
+<img src="./src/assets/screenshot3.png" alt="metapeek" width="400" />
 
-![Dark Mode](./src/assets/screenshot4.png)
+<img src="./src/assets/screenshot4.png" alt="metapeek" width="400" />
 
 ---
 
