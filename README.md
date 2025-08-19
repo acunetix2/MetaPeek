@@ -1,7 +1,6 @@
+<img src="./src/assets/logo.png" alt="Metapeek Logo" width="200" /> <br>
 # Metapeek
-<br>
 *Your window into the hidden data of every image.*
-<img src="./src/assets/logo.png" alt="Metapeek Logo" width="200" />
 
 Metapeek is a cutting-edge **image forensics and metadata analysis platform** designed to help users extract, inspect, and visualize metadata from images and media files. It offers an intuitive interface for both technical and non-technical users to perform detailed image analysis, verify authenticity, and gain insights from embedded metadata.
 
