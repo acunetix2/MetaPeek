@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { InfoIcon, ClipboardCopy } from "lucide-react";
+import { InfoIcon, ClipboardCopy, FileDown } from "lucide-react";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import logo from "@/assets/logo.png";
 
 export default function MetadataCard({ metadata }) {
   const [copied, setCopied] = useState(false);
 
   if (!metadata || typeof metadata !== "object") return null;
+
+  const formatValue = (value) => {
+    if (value === null || value === undefined || value === "") return "None";
+    if (Array.isArray(value)) return value.length ? value.join(", ") : "None";
+    return String(value);
+  };
 
   const handleCopy = () => {
     const formatted = Object.entries(metadata)
@@ -19,10 +28,65 @@ export default function MetadataCard({ metadata }) {
     });
   };
 
-  const formatValue = (value) => {
-    if (value === null || value === undefined || value === "") return "None";
-    if (Array.isArray(value)) return value.length ? value.join(", ") : "None";
-    return String(value);
+  const handleExportPDF = () => {
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    doc.setFillColor(156, 163, 175); 
+    doc.rect(0, 0, pageWidth, pageHeight, "F");
+
+    const img = new Image();
+    img.src = logo;
+    const imgWidth = 50;
+    const imgHeight = 50;
+    doc.addImage(img, "PNG", (pageWidth - imgWidth) / 2, 10, imgWidth, imgHeight);
+
+    doc.setFontSize(18);
+    const title = "Image Metadata Report";
+    const textWidth = doc.getTextWidth(title);
+    doc.setTextColor(0, 0, 0);
+    doc.text(title, (pageWidth - textWidth) / 2, 70);
+
+    const tableData = Object.entries(metadata).map(([key, value]) => [
+      key,
+      formatValue(value),
+    ]);
+
+    autoTable(doc, {
+      startY: 80,
+      head: [["Field", "Value"]],
+      body: tableData,
+      theme: "grid",
+      styles: {
+        fontSize: 10,
+        textColor: [0, 0, 0],
+        fillColor: [255, 255, 255],
+        lineColor: [0, 0, 0],
+        lineWidth: 0.3,
+      },
+      headStyles: {
+        fillColor: [0, 0, 0],
+        textColor: [255, 255, 255],
+      },
+      alternateRowStyles: {
+        fillColor: [245, 245, 245],
+      },
+    });
+
+    doc.setFontSize(50);
+    doc.setTextColor(200, 200, 200);
+    doc.text("MetaPeek", pageWidth / 2, pageHeight / 2, { align: "center", angle: 45 });
+
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
+    doc.text(
+      `Generated on: ${new Date().toLocaleString()} © MetaPeek`,
+      14,
+      pageHeight - 10
+    );
+
+    doc.save("metadata.pdf");
   };
 
   return (
@@ -39,14 +103,24 @@ export default function MetadataCard({ metadata }) {
             <InfoIcon className="w-5 h-5 text-orange-500" />
             <span>Image Information</span>
           </div>
-          <button
-            onClick={handleCopy}
-            title="Copy all metadata"
-            className="text-sm text-blue-500 hover:underline flex items-center gap-1"
-          >
-            <ClipboardCopy className="w-4 h-4" />
-            Copy
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={handleCopy}
+              title="Copy all metadata"
+              className="text-sm text-blue-500 hover:underline flex items-center gap-1"
+            >
+              <ClipboardCopy className="w-4 h-4" />
+              Copy
+            </button>
+            <button
+              onClick={handleExportPDF}
+              title="Export metadata as PDF"
+              className="text-sm text-red-500 hover:underline flex items-center gap-1"
+            >
+              <FileDown className="w-4 h-4" />
+              Export PDF
+            </button>
+          </div>
         </CardHeader>
         <Separator />
         <CardContent className="p-4">

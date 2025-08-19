@@ -27,7 +27,7 @@ export default function DashboardLayout() {
     localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
-  const navLinks = ["Home", "About", "Docs", "Policy", "Terms", "Security"];
+  const navLinks = ["Home", "About", "Docs", "Privacy", "Terms", "Security"];
 
   return (
     <SignedIn>
