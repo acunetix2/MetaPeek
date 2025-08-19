@@ -1,4 +1,3 @@
-````markdown
 # Metapeek
 
 ![Metapeek Logo](./assets/logo.png)
@@ -50,67 +49,3 @@ Metapeek is a cutting-edge **image forensics and metadata analysis platform** de
 ```bash
 git clone https://github.com/acunetix2/metapeek.git
 cd metapeek
-````
-
-2. Install dependencies:
-
-```bash
-pnpm install
-# or
-npm install
-```
-
-3. Start the development server:
-
-```bash
-pnpm run dev
-# or
-npm run dev
-```
-
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-## Usage
-
-1. Navigate to the **Upload Area** on the homepage.
-2. Drag and drop an image or select one from your device.
-3. View extracted metadata in the **Metadata Card** panel.
-4. If GPS coordinates exist, open the **Map Viewer** to see the location.
-5. Use the **Search** and **Filter** options to explore metadata efficiently.
-
----
-
-## Contributing
-
-We welcome contributions to improve Metapeek! To contribute:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature-name`.
-3. Make your changes and commit: `git commit -m "Add your feature"`.
-4. Push to your branch: `git push origin feature/your-feature-name`.
-5. Open a Pull Request on GitHub.
-
----
-
-## License
-
-Metapeek is released under the **MIT License**. See [LICENSE](./LICENSE) for details.
-
----
-
-## Contact
-
-For support or inquiries, contact:
-
-**Iddy Chesire**
-Email: [iddychesire098@gmail.com](mailto:iddychesire098@gmail.com)
-Website: [https://meta-peek.vercel.app](https://meta-peek.vercel.app)
-
----
-
-*Metapeek – Your window into the hidden data of every image.*
-
-```
-```
