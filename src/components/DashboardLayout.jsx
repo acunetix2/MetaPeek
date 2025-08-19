@@ -31,7 +31,7 @@ export default function DashboardLayout() {
 
   return (
     <SignedIn>
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-green-700 dark:text-white-300 flex flex-col">
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-white-700 dark:text-green-300 flex flex-col">
         <div className="h-2 bg-gradient-to-r from-green-700 via-blue-500 to-pink-600 dark:from-green-900 dark:via-blue-700 dark:to-green-800" />
 
         <header className="bg-white dark:bg-gray-800 shadow px-4 sm:px-6 py-2 sticky top-0 z-50">
