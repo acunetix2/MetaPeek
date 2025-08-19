@@ -1,4 +1,5 @@
 # Metapeek
+<br>
 *Your window into the hidden data of every image.*
 <img src="./src/assets/logo.png" alt="Metapeek Logo" width="200" />
 
