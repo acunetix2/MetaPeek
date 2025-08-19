@@ -199,8 +199,8 @@ export default function LandingPage() {
               Icon: ShieldCheck,
             },
             {
-              title: "Fast, Batch-Ready",
-              desc: "Process single files or folders with responsive performance at scale.",
+              title: "Fast",
+              desc: "Process single files with responsive performance at scale.",
               Icon: Zap,
             },
             {
@@ -210,13 +210,8 @@ export default function LandingPage() {
             },
             {
               title: "Insightful Reporting",
-              desc: "Export clean summaries to PDF/CSV with key fields, flags, and timestamps.",
+              desc: "Export clean summaries to PDF with key fields.",
               Icon: BarChart3,
-            },
-            {
-              title: "Integrations & API",
-              desc: "Connect via API or use webhooks to automate submissions from your systems.",
-              Icon: ServerCog,
             },
           ].map(({ title, desc, Icon }, i) => (
             <div
