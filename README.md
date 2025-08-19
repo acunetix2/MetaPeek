@@ -98,7 +98,6 @@ Metapeek is released under the **MIT License**. See [LICENSE](./LICENSE) for det
 
 For support or inquiries, contact:
 
-**Iddy Chesire**
 Email: [iddychesire098@gmail.com](mailto:iddychesire098@gmail.com)
 Website: [https://meta-peek.vercel.app](https://meta-peek.vercel.app)
 
