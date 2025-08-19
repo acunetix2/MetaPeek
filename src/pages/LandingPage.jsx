@@ -68,18 +68,18 @@ export default function LandingPage() {
               MetaPeek
             </h1>
           </div>
-          <nav className="flex items-center gap-6 font-sans tracking-wide text-gray-200 text-lg md:text-base">
-            <a
-              href="#features"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold "
-            >
-              Features
-            </a>
+          <nav className="flex items-center gap-4 font-sans tracking-wide text-gray-200 text-lg md:text-base">
             <a
               href="#screenshots"
               className="hover:text-green-400 transition-colors duration-300 font-semibold "
             >
               Demo
+            </a>
+            <a
+              href="#features"
+              className="hover:text-green-400 transition-colors duration-300 font-semibold "
+            >
+              Features
             </a>
             <a
               href="#howitworks"
@@ -102,10 +102,22 @@ export default function LandingPage() {
           </SignedIn>
         </div>
       </header>
-
+      <section>
+        <div className="ticker-bar bg-gradient-to-r from-green-600 via-blue-500 to-pink-500 text-white dark:from-green-800 dark:via-blue-700 dark:to-pink-700 h-3 sm:h-5 overflow-hidden flex items-center sticky top-[72px] z-40">
+          <div className="ticker-content whitespace-nowrap text-xs sm:text-sm animate-[ticker-scroll_15s_linear_infinite] px-4 flex gap-6">
+            <span>Trusted</span>
+            <span>•</span>
+            <span>Secure Metadata Extraction</span>
+            <span>•</span>
+            <span>Powered by MetaPeek</span>
+            <span>•</span>
+            <span>See beyond just graphics</span>
+          </div>
+        </div>
+      </section>
       {/* Hero Section */}
       <section className="text-center py-16 px-6">
-        <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
+        <h2 className="text-4xl md:text-4xl font-extrabold mb-4">
           {" "} <span className="text-green-500">MetaPeek</span>: Your window into the hidden data of every image.
         </h2>
         <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-6">
@@ -131,20 +143,20 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Screenshots Slider with Left Content */}
+      {/* Right content*/}
       <section id="screenshots" className="py-10 px-8">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div className="text-left">
-            <h3 className="text-3xl font-bold text-green-500 mb-3">
-              See MetaPeek in Action
+            <h3 className="text-2xl font-bold text-green-500 mb-3">
+              User Experience
             </h3>
-            <p className="text-gray-400 mb-3">
+            <p className="text-gray-400 mb-3 text-1xl ">
               Experience real-time visual forensics and metadata parsing.
               MetaPeek detects hidden edits, flags anomalies, and surfaces the
-              facts—so you can act with confidence.
+              facts so you can act with confidence.
             </p>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-1xl">
               From compliance reviews to investigative workflows, MetaPeek
               translates raw image data into reliable insights and shareable
               reports.
@@ -183,7 +195,7 @@ export default function LandingPage() {
 
       {/* Features */}
       <section id="features" className="py-16 px-8 bg-gray-800">
-        <h3 className="text-3xl font-bold text-center mb-10">
+        <h3 className="text-2xl font-bold text-center mb-10">
           Why Choose MetaPeek?
         </h3>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -232,7 +244,7 @@ export default function LandingPage() {
 
       {/* How It Works */}
       <section id="howitworks" className="py-16 px-8 bg-gray-800">
-        <h3 className="text-3xl font-bold text-center mb-10">
+        <h3 className="text-2xl font-bold text-center mb-10">
           How MetaPeek Works
         </h3>
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
@@ -298,7 +310,7 @@ export default function LandingPage() {
           Ready to Elevate Your Image Analysis?
         </h3>
         <p className="text-gray-200 mb-4 max-w-2xl mx-auto">
-          Join teams that rely on MetaPeek for faster reviews, defensible
+          Try MetaPeek for faster reviews, defensible
           findings, and clean reports.
         </p>
         <div className="flex justify-center gap-2">
@@ -325,7 +337,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 text-left">
           {/* Logo + CTA */}
           <div>
-            <h1 className="text-2xl font-bold text-green-500 mb-4">MetaPeek</h1>
+            <h1 className="text-1xl font-bold text-green-500 mb-4">MetaPeek</h1>
             <p className="mb-6">
               Uncover hidden details, detect anomalies, and gain actionable
               insights from images.
@@ -463,7 +475,7 @@ export default function LandingPage() {
             </a>
           </div>
           <p className="text-center md:text-right">
-            © {new Date().getFullYear()} MetaPeek. All rights reserved.
+            &copy; {new Date().getFullYear()} MetaPeek | All rights reserved.
           </p>
         </div>
       </footer>

@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
 
   const sections = [
     {
-      title: "1. Information We Collect",
+      title: "Information We Collect",
       content: (
         <ul className="list-disc ml-6 mt-2 text-gray-300">
           <li>Personal Information: name, email, account credentials.</li>
@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
       ),
     },
     {
-      title: "2. How We Use Your Information",
+      title: "How We Use Your Information",
       content: (
         <ul className="list-disc ml-6 mt-2 text-gray-300">
           <li>Provide and improve our services.</li>
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
       ),
     },
     {
-      title: "3. Sharing of Information",
+      title: "Sharing of Information",
       content: (
         <>
           <p className="text-gray-300">
@@ -39,12 +39,13 @@ export default function PrivacyPolicy() {
             <li>With service providers who help us operate MetaPeek.</li>
             <li>To comply with legal obligations or law enforcement requests.</li>
             <li>During business transfers, mergers, or acquisitions.</li>
+            <li>Note: Only to trusted partners</li>
           </ul>
         </>
       ),
     },
     {
-      title: "4. Data Retention",
+      title: "Data Retention",
       content: (
         <p className="text-gray-300">
           We retain your personal information only as long as necessary to provide our services or as required by law.
@@ -52,17 +53,18 @@ export default function PrivacyPolicy() {
       ),
     },
     {
-      title: "5. Your Privacy Rights",
+      title: "Your Privacy Rights",
       content: (
         <ul className="list-disc ml-6 mt-2 text-gray-300">
           <li>Access or update your personal information.</li>
           <li>Request deletion of your data.</li>
+          <li>Delete your account</li>
           <li>Opt-out of marketing communications.</li>
         </ul>
       ),
     },
     {
-      title: "6. Security of Data",
+      title: "Security of Data",
       content: (
         <p className="text-gray-300">
           We implement reasonable technical and organizational measures to protect your data from unauthorized access, disclosure, or loss. For more details, see our Security Policy.
@@ -70,7 +72,7 @@ export default function PrivacyPolicy() {
       ),
     },
     {
-      title: "7. Changes to Privacy Policy",
+      title: "Changes to Privacy Policy",
       content: (
         <p className="text-gray-300">
           We may update this Privacy Policy periodically. Continued use of MetaPeek constitutes acceptance of any changes. We encourage users to review this page regularly.
@@ -78,7 +80,7 @@ export default function PrivacyPolicy() {
       ),
     },
     {
-      title: "8. Contact Us",
+      title: "Contact Us",
       content: (
         <p className="text-gray-300">
           For questions about this Privacy Policy, contact us at{" "}
@@ -86,7 +88,7 @@ export default function PrivacyPolicy() {
             href="mailto:support@metapeek.com"
             className="text-green-400 underline hover:text-green-300 transition"
           >
-            support@metapeek.com
+            support
           </a>
           .
         </p>
@@ -112,18 +114,18 @@ export default function PrivacyPolicy() {
             onClick={handleNavigate}
             className="flex items-center gap-2 px-4 py-2 bg-green-500 text-gray-900 font-semibold rounded-lg shadow hover:bg-green-600 transition"
           >
-            <FaArrowLeft className="animate-bounce" />
+            <FaArrowLeft className="animate-bounce text-1xl" />
             Back
           </button>
         </div>
 
         {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-green-500 text-center">
+        <h1 className="text-2xl md:text-0.5xl font-extrabold text-green-500 text-center">
           MetaPeek Privacy Policy
         </h1>
 
         {/* Intro Paragraph */}
-        <p className="text-gray-300 text-lg md:text-xl text-center max-w-3xl mx-auto">
+        <p className="text-gray-300 md:text-xl text-center max-w-0.5xl mx-auto">
           At MetaPeek, your privacy is important. This Privacy Policy explains how we collect, use, and protect your information when you use our services.
         </p>
 
@@ -134,7 +136,7 @@ export default function PrivacyPolicy() {
               key={index}
               className="bg-gray-800 rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-green-500 mb-3">
+              <h2 className="text-0.5xl md:text-1xl font-bold text-green-500 mb-3">
                 {section.title}
               </h2>
               {section.content}
@@ -146,7 +148,7 @@ export default function PrivacyPolicy() {
       {/* Footer */}
       <footer className="bg-gray-800 text-gray-400 text-center py-6 mt-auto">
         <p className="mb-2">&copy; {new Date().getFullYear()} MetaPeek | All rights reserved.</p>
-        <p className="font-semibold text-gray-200">— The MetaPeek Team</p>
+        <p className="font-semibold text-gray-200">The MetaPeek Team</p>
       </footer>
     </div>
   );
