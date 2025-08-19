@@ -106,8 +106,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="text-center py-16 px-6">
         <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
-          {" "} :Your window into the hidden data of every image
-          <span className="text-green-500">MetaPeek</span>
+          {" "} <span className="text-green-500">MetaPeek</span>: Your window into the hidden data of every image.
         </h2>
         <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-6">
           Discover hidden details and metadata in images instantly. MetaPeek is
