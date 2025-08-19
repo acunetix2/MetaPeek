@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { SignedIn, SignedOut, RedirectToSignIn, UserButton } from "@clerk/clerk-react";
 import logo from "@/assets/logo.png";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function DashboardLayout() {
   const [isDark, setIsDark] = useState(false);
@@ -27,7 +27,8 @@ export default function DashboardLayout() {
     localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
-  const navLinks = ["Home", "About", "Docs"];
+  // All links as plain text
+  const navLinks = ["Home", "About", "Docs", "Policy", "Terms", "Security"];
 
   return (
     <SignedIn>
@@ -54,7 +55,7 @@ export default function DashboardLayout() {
             </div>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex gap-2 md:gap-4 flex-wrap">
+            <nav className="hidden md:flex gap-6 items-center">
               {navLinks.map((label) => {
                 const path = `/app/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
                 const isActive = location.pathname === path;
@@ -62,10 +63,10 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`px-3 py-2 rounded-xl font-medium text-sm sm:text-base transition ${
+                    className={`font-medium text-sm sm:text-base transition ${
                       isActive
-                        ? "bg-green-300 dark:bg-green-800 text-green-900 dark:text-green-100"
-                        : "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800"
+                        ? "text-green-800 dark:text-green-200 underline"
+                        : "text-green-600 dark:text-green-400 hover:underline"
                     }`}
                   >
                     {label}
@@ -92,7 +93,11 @@ export default function DashboardLayout() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle Menu"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5 text-green-900 dark:text-green-100" /> : <Menu className="w-5 h-5 text-green-900 dark:text-green-100" />}
+                {mobileMenuOpen ? (
+                  <X className="w-5 h-5 text-green-900 dark:text-green-100" />
+                ) : (
+                  <Menu className="w-5 h-5 text-green-900 dark:text-green-100" />
+                )}
               </button>
             </div>
           </div>
@@ -107,10 +112,10 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`px-3 py-2 rounded-xl font-medium text-base transition ${
+                    className={`font-medium text-base transition ${
                       isActive
-                        ? "bg-green-300 dark:bg-green-800 text-green-900 dark:text-green-100"
-                        : "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800"
+                        ? "text-green-800 dark:text-green-200 underline"
+                        : "text-green-600 dark:text-green-400 hover:underline"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -139,8 +144,8 @@ export default function DashboardLayout() {
         </main>
 
         <Footer />
-		<Analytics />
-		<SpeedInsights />
+        <Analytics />
+        <SpeedInsights />
       </div>
 
       <SignedOut>

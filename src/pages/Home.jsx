@@ -78,6 +78,19 @@ export default function HomePage() {
     img.src = URL.createObjectURL(file);
 
     img.onload = () => {
+      // 🔎 Extract possible links from metadata values
+      const urlRegex = /(https?:\/\/[^\s]+)/gi;
+      let links = [];
+
+      Object.values(metadata).forEach((val) => {
+        if (typeof val === "string") {
+          const found = val.match(urlRegex);
+          if (found) links.push(...found);
+        }
+      });
+
+      links = [...new Set(links)]; // deduplicate
+
       const info = {
         Name: file.name,
         Type: file.type,
@@ -143,6 +156,19 @@ export default function HomePage() {
         Copyright: metadata.Copyright || "N/A",
         Software: metadata.Software || "N/A",
         MakerNotes: metadata.MakerNote ? "[Present]" : "N/A",
+
+        // ✅ Extra EXIF fields
+        Instructions: metadata.Instructions || "N/A",
+        AuthorsPosition: metadata.AuthorsPosition || "N/A",
+        Credit: metadata.Credit || "N/A",
+        Source: metadata.Source || "N/A",
+        City: metadata.City || "N/A",
+        State: metadata.State || "N/A",
+        Country: metadata.Country || "N/A",
+        TransmissionReference: metadata.TransmissionReference || "N/A",
+
+        // ✅ Extracted links
+        Links: links.length > 0 ? links : "N/A",
       };
 
       setTimeout(() => {
@@ -175,24 +201,25 @@ export default function HomePage() {
   return (
     <div className="w-full p-4 md:p-6 space-y-8 text-left">
       {/* Intro */}
-	<div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl text-left">
-	  <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-		Welcome to MetaPeek
-	  </h1>
-	  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-		MetaPeek is a powerful image metadata scanner designed to help you uncover 
-		the hidden details behind your images. Whether you're a digital forensics 
-		analyst, a photographer reviewing camera information, or a developer 
-		validating media integrity, MetaPeek provides a clear, structured view of 
-		the metadata contained within your files.
-	  </p>
-	  <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
-		Quickly analyze information such as camera settings, timestamps, geolocation 
-		data, and descriptive tags all presented in an easy-to-read format. Gain 
-		deeper insights, detect anomalies, and make more informed decisions with 
-		confidence.
-	  </p>
-	</div>
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl text-left">
+        <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+          Welcome to MetaPeek
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+          MetaPeek is a powerful image metadata scanner designed to help you uncover 
+          the hidden details behind your images. Whether you're a digital forensics 
+          analyst, a photographer reviewing camera information, or a developer 
+          validating media integrity, MetaPeek provides a clear, structured view of 
+          the metadata contained within your files.
+        </p>
+        <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
+          Quickly analyze information such as camera settings, timestamps, geolocation 
+          data, and descriptive tags all presented in an easy-to-read format. Gain 
+          deeper insights, detect anomalies, and make more informed decisions with 
+          confidence.
+        </p>
+      </div>
+
       {/* Upload */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl w-full sm:w-[500px] text-left">
         <UploadArea onImageSelect={handleImageSelect} />
