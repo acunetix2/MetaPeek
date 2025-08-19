@@ -32,7 +32,7 @@ export default function LandingPage() {
       setShowLoading(true);
       const timer = setTimeout(() => {
         navigate("/app");
-      }, 2500); // 2.5s loading screen before redirect
+      }, 2500); //loading screen before redirect..
       return () => clearTimeout(timer);
     }
   }, [isSignedIn, navigate]);
@@ -40,7 +40,6 @@ export default function LandingPage() {
   const screenshots = [Screenshot1, Screenshot2, Screenshot3, Screenshot4];
   const [index, setIndex] = useState(0);
 
-  // Auto-slide screenshots every 3 seconds
   useEffect(() => {
     const interval = setInterval(
       () => setIndex((prev) => (prev + 1) % screenshots.length),
@@ -66,25 +65,25 @@ export default function LandingPage() {
               className="w-14 h-14 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
             />
             <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
-              METAPEEK
+              MetaPeek
             </h1>
           </div>
           <nav className="flex items-center gap-6 font-sans tracking-wide text-gray-200 text-lg md:text-base">
             <a
               href="#features"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold uppercase"
+              className="hover:text-green-400 transition-colors duration-300 font-semibold "
             >
               Features
             </a>
             <a
               href="#screenshots"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold uppercase"
+              className="hover:text-green-400 transition-colors duration-300 font-semibold "
             >
               Demo
             </a>
             <a
               href="#howitworks"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold uppercase"
+              className="hover:text-green-400 transition-colors duration-300 font-semibold "
             >
               Workflow
             </a>
@@ -107,13 +106,13 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="text-center py-16 px-6">
         <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
-          See Beyond the Surface with{" "}
+          {" "} :Your window into the hidden data of every image
           <span className="text-green-500">MetaPeek</span>
         </h2>
         <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-6">
           Discover hidden details and metadata in images instantly. MetaPeek is
           your professional suite for forensic image analysis, anomaly
-          detection, and structured reporting—designed for teams that need
+          detection, and structured reporting designed for teams that need
           accuracy, auditability, and speed.
         </p>
         <div className="flex gap-2 justify-center">
