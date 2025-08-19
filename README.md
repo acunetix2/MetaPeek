@@ -21,17 +21,13 @@ Metapeek is a cutting-edge **image forensics and metadata analysis platform** de
 
 ## Screenshots
 
-### Upload Area
-![Upload Area](./assets/screenshot1.png)
+![Upload Area](./src/assets/screenshot1.png)
 
-### Metadata Viewer
-![Metadata Viewer](./assets/screenshot2.png)
+![Metadata Viewer](./src/assets/screenshot2.png)
 
-### Map Viewer
-![Map Viewer](./assets/screenshot3.png)
+![Map Viewer](./src/assets/screenshot3.png)
 
-### Dark Mode
-![Dark Mode](./assets/screenshot4.png)
+![Dark Mode](./src/assets/screenshot4.png)
 
 ---
 
