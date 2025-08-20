@@ -1,6 +1,4 @@
 {
-  "name": "meta-peek",
-  "icon": "/public/logo.png",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
