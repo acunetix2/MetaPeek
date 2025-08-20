@@ -1,5 +1,9 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
+	{
+	  "name": "meta-peek",
+	  "icon": "/logo.png"
+	}
   ]
 }
