@@ -101,7 +101,7 @@ export default function DashboardLayout() {
             </div>
           </div>
 
-          {/* Mobile nav */}
+          {/* Mobile nav  + X nav menu*/} 
           {mobileMenuOpen && (
             <nav className="md:hidden mt-2 flex flex-col gap-2 bg-green-50 dark:bg-gray-800 rounded-xl p-2">
               {navLinks.map((label) => {

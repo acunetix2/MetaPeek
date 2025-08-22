@@ -3,6 +3,7 @@ import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 import LoadingScreen from "@/pages/LoadingScreen";
 import {
@@ -23,6 +24,7 @@ import Screenshot4 from "@/assets/screenshot4.png";
 export default function LandingPage() {
   const { isSignedIn } = useUser();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   // Control loading screen after signin
   const [showLoading, setShowLoading] = useState(false);
@@ -56,52 +58,92 @@ export default function LandingPage() {
   return (
     <div className="bg-gray-900 text-white font-sans">
       {/* Navbar */}
-      <header className="flex justify-between items-center px-8 py-6 border-b border-gray-800 shadow-md bg-gray-900 sticky top-0 z-50">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <img
-              src={logo}
-              alt="Metapeek Logo"
-              className="w-14 h-14 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
-            />
-            <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
-              MetaPeek
-            </h1>
-          </div>
-          <nav className="flex items-center gap-4 font-sans tracking-wide text-gray-200 text-lg md:text-base">
-            <a
-              href="#screenshots"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold "
-            >
-              Demo
-            </a>
-            <a
-              href="#features"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold "
-            >
-              Features
-            </a>
-            <a
-              href="#howitworks"
-              className="hover:text-green-400 transition-colors duration-300 font-semibold "
-            >
-              Workflow
-            </a>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button className="bg-green-500 text-gray-900 font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
-                Get Started
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </div>
-      </header>
+		  <header className="flex justify-between items-center px-8 py-6 border-b border-gray-800 shadow-md bg-gray-900 sticky top-0 z-50">
+		  {/* Left */}
+		  <div className="flex items-center gap-6">
+			<div className="flex items-center gap-2">
+			  <img
+				src={logo}
+				alt="Metapeek Logo"
+				className="w-14 h-14 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+			  />
+			  <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
+				MetaPeek
+			  </h1>
+			</div>
+
+			{/* Desktop Nav */}
+			<nav className="hidden md:flex items-center gap-4 font-sans tracking-wide text-gray-200 text-lg md:text-base">
+			  <a
+				href="#screenshots"
+				className="hover:text-green-400 transition-colors duration-300 font-semibold"
+			  >
+				Demo
+			  </a>
+			  <a
+				href="#features"
+				className="hover:text-green-400 transition-colors duration-300 font-semibold"
+			  >
+				Features
+			  </a>
+			  <a
+				href="#howitworks"
+				className="hover:text-green-400 transition-colors duration-300 font-semibold"
+			  >
+				Workflow
+			  </a>
+			</nav>
+		  </div>
+
+		  {/* Right */}
+		  <div className="flex items-center gap-4">
+			<SignedOut>
+			  <SignInButton mode="modal">
+				<button className="bg-green-500 text-gray-900 font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
+				  Get Started
+				</button>
+			  </SignInButton>
+			</SignedOut>
+			<SignedIn>
+			  <UserButton />
+			</SignedIn>
+
+			{/* Mobile Menu Toggle */}
+			<button
+			  className="md:hidden text-gray-200"
+			  onClick={() => setIsOpen(!isOpen)}
+			>
+			  {isOpen ? <X size={28} /> : <Menu size={28} />}
+			</button>
+		  </div>
+
+		  {/* Mobile Nav */}
+		  {isOpen && (
+			<nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-gray-800 flex flex-col items-center gap-6 py-6 md:hidden">
+			  <a
+				href="#screenshots"
+				onClick={() => setIsOpen(false)}
+				className="hover:text-green-400 transition-colors duration-300 font-semibold text-lg"
+			  >
+				Demo
+			  </a>
+			  <a
+				href="#features"
+				onClick={() => setIsOpen(false)}
+				className="hover:text-green-400 transition-colors duration-300 font-semibold text-lg"
+			  >
+				Features
+			  </a>
+			  <a
+				href="#howitworks"
+				onClick={() => setIsOpen(false)}
+				className="hover:text-green-400 transition-colors duration-300 font-semibold text-lg"
+			  >
+				Workflow
+			  </a>
+			</nav>
+		  )}
+		</header>
       <section>
         <div className="ticker-bar bg-gradient-to-r from-green-600 via-blue-500 to-pink-500 text-white dark:from-green-800 dark:via-blue-700 dark:to-pink-700 h-3 sm:h-5 overflow-hidden flex items-center sticky top-[72px] z-40">
           <div className="ticker-content whitespace-nowrap text-xs sm:text-sm animate-[ticker-scroll_15s_linear_infinite] px-4 flex gap-6">
