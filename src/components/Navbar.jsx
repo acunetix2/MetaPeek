@@ -69,8 +69,12 @@ export default function Navbar() {
             </div>
           </div>
 
-          {menuOpen && (
-            <div className="md:hidden pb-4 space-y-2 flex flex-col items-center">
+          <div
+            className={`md:hidden overflow-hidden transition-all duration-300 ${
+              menuOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="pb-4 space-y-2 flex flex-col items-center">
               <Link
                 to="/"
                 onClick={() => setMenuOpen(false)}
@@ -93,7 +97,7 @@ export default function Navbar() {
                 Docs
               </Link>
             </div>
-          )}
+          </div>
         </div>
       </div>
 
