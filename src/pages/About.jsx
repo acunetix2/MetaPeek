@@ -4,8 +4,8 @@ import { InfoIcon } from "lucide-react";
 export default function About() {
   const owner = {
     name: "Iddy Chesire",
-    role: "Cybersecurity Analyst & Developer",
-    bio: "Iddy Chesire is dedicated to building secure, user-friendly tools that empower individuals to understand and manage their data. He leads MetaPeek, ensuring it is intuitive, reliable, and respects user privacy.",
+    role: "Cybersecurity Enthusiast",
+	bio: "Open Source Intelligence tool",
     image: "https://api.dicebear.com/7.x/initials/svg?seed=Iddy%20Chesire",
   };
 
