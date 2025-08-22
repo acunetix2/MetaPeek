@@ -206,7 +206,7 @@ export default function HomePage() {
           Welcome to MetaPeek
         </h1>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          MetaPeek is a powerful image metadata scanner designed to help you uncover 
+          MetaPeek is an image metadata scanner designed to help you uncover 
           the hidden details behind your images. Whether you're a digital forensics 
           analyst, a photographer reviewing camera information, or a developer 
           validating media integrity, MetaPeek provides a clear, structured view of 
