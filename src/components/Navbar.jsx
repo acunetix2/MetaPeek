@@ -13,31 +13,28 @@ export default function Navbar() {
 
   const navLinkClasses = (path) =>
     [
-      "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+      "block w-full text-center md:w-auto px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
       isActive(path)
         ? "bg-green-600 text-white dark:bg-green-500 shadow-md"
         : "text-gray-700 hover:text-green-700 hover:bg-green-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-green-700",
     ].join(" ");
 
   return (
-    <header className="sticky top-0 z-50">
-      {/* First layer - Main Navbar */}
+    <header className="sticky top-0 z-50 w-full">
       <div className="bg-white dark:bg-gray-900 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo with circle image + text */}
+          <div className="flex justify-between items-center py-3 md:py-4">
             <Link to="/" className="flex items-center space-x-2">
               <img
                 src={logo}
                 alt="Metapeek Logo"
                 className="w-8 h-8 rounded-full shadow-md"
               />
-              <span className="text-2xl font-bold text-green-600 dark:text-green-400 tracking-wide">
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-green-600 dark:text-green-400 tracking-wide">
                 METAPEEK
               </span>
             </Link>
 
-            {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-2">
               <Link to="/" className={navLinkClasses("/")}>
                 Home
@@ -50,9 +47,7 @@ export default function Navbar() {
               </Link>
             </nav>
 
-            {/* Right side controls */}
-            <div className="flex items-center space-x-3">
-              {/* Theme toggle */}
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
@@ -65,7 +60,6 @@ export default function Navbar() {
                 )}
               </button>
 
-              {/* Mobile Menu Button */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -75,9 +69,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Nav */}
           {menuOpen && (
-            <div className="md:hidden pb-4 space-y-2">
+            <div className="md:hidden pb-4 space-y-2 flex flex-col items-center">
               <Link
                 to="/"
                 onClick={() => setMenuOpen(false)}
@@ -104,10 +97,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Second Layer - Animated Gradient Bar */}
       <div className="h-1 w-full bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-gradientMove"></div>
 
-      {/* Scoped CSS for gradient animation */}
       <style jsx>{`
         @keyframes gradientMove {
           0% {
@@ -120,7 +111,6 @@ export default function Navbar() {
             background-position: 0% 50%;
           }
         }
-
         .animate-gradientMove {
           background-size: 200% 200%;
           animation: gradientMove 6s ease infinite;

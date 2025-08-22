@@ -1,27 +1,42 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input"; // ⬅️ need Input for URL field
+import { Input } from "@/components/ui/input";
 
-export default function UploadArea({ onImageSelect }) {
+export default function UploadArea({ onImageSelect, resetCounter }) {
   const fileRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [isReady, setIsReady] = useState(false);
+
+  // 🔄 Reset whenever parent increments resetCounter
+  useEffect(() => {
+    setSelectedFile(null);
+    setImageUrl("");
+    setIsReady(false);
+    if (fileRef.current) fileRef.current.value = "";
+  }, [resetCounter]);
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files?.[0];
     if (file && file.type.startsWith("image/")) {
-      setSelectedFile(file); // store but don’t preview
+      setSelectedFile(file);
+      setImageUrl("");
+      setIsReady(true);
     }
+    // ✅ reset input so selecting the same file again triggers onChange
+    e.target.value = "";
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
-    const file = e.dataTransfer.files[0];
+    const file = e.dataTransfer.files?.[0];
     if (file && file.type.startsWith("image/")) {
-      setSelectedFile(file); // store but don’t preview
+      setSelectedFile(file);
+      setImageUrl("");
+      setIsReady(true);
     }
   };
 
@@ -34,7 +49,6 @@ export default function UploadArea({ onImageSelect }) {
     setIsDragging(false);
   };
 
-  // ⬇️ New: fetch image from URL and convert to File
   const handleGetUrl = async () => {
     if (!imageUrl.trim()) return;
     try {
@@ -42,17 +56,21 @@ export default function UploadArea({ onImageSelect }) {
       const blob = await response.blob();
       const file = new File([blob], "image-from-url.jpg", { type: blob.type });
       setSelectedFile(file);
+      setIsReady(true);
     } catch (error) {
       console.error("Error fetching image:", error);
+      setSelectedFile(null);
+      setIsReady(false);
     }
   };
 
   const handleUploadClick = () => {
     if (selectedFile) {
-      onImageSelect && onImageSelect(selectedFile); // send file up to parent
+      onImageSelect?.(selectedFile);
     } else if (imageUrl.trim() !== "") {
-      onImageSelect && onImageSelect(imageUrl); // fallback send URL
+      onImageSelect?.(imageUrl);
     }
+    // ❌ Do not clear here — let HomePage handle reset via resetCounter
   };
 
   return (
@@ -96,26 +114,30 @@ export default function UploadArea({ onImageSelect }) {
         className="hidden"
       />
 
-      {/* ⬇️ New section for inserting Image URL */}
       <div className="space-y-2">
         <Label htmlFor="image-url">Or paste image URL</Label>
-        <div className="flex gap-2 bg-white-600">
+        <div className="flex gap-2">
           <Input
             id="image-url"
             type="url"
             value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            onChange={(e) => {
+              setImageUrl(e.target.value);
+              setSelectedFile(null);
+              setIsReady(e.target.value.trim() !== "");
+            }}
           />
-          <Button type="button" onClick={handleGetUrl}>
+          <Button
+            type="button"
+            onClick={handleGetUrl}
+            disabled={!imageUrl.trim()} // ✅ disabled until URL entered
+          >
             Get URL
           </Button>
         </div>
       </div>
 
-      <Button
-        onClick={handleUploadClick}
-        disabled={!selectedFile && imageUrl.trim() === ""}
-      >
+      <Button onClick={handleUploadClick} disabled={!isReady}>
         Upload
       </Button>
     </div>

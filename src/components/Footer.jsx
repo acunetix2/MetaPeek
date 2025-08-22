@@ -80,7 +80,7 @@ export default function Footer() {
             </ul>
             <div className="flex gap-4 text-2xl">
               <a
-                href="https://twitter.com/metapeek"
+                href="https://x.com/MONTER34865"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-500 transition"
@@ -88,7 +88,7 @@ export default function Footer() {
                 <FaTwitter />
               </a>
               <a
-                href="https://linkedin.com/company/metapeek"
+                href="https://www.linkedin.com/in/metapeek-inc-3a7b2237b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-500 transition"
