@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, Home, Info, BookOpen, Shield, FileText, Lock } from "lucide-react";
 import Footer from "@/components/Footer";
 import { SignedIn, SignedOut, RedirectToSignIn, UserButton } from "@clerk/clerk-react";
 import logo from "@/assets/logo.png";
@@ -28,6 +28,15 @@ export default function DashboardLayout() {
   };
 
   const navLinks = ["Home", "About", "Docs", "Privacy", "Terms", "Security"];
+
+  const navIcons = {
+    Home: <Home className="w-4 h-4 mr-1 inline" />,
+    About: <Info className="w-4 h-4 mr-1 inline" />,
+    Docs: <BookOpen className="w-4 h-4 mr-1 inline" />,
+    Privacy: <Shield className="w-4 h-4 mr-1 inline" />,
+    Terms: <FileText className="w-4 h-4 mr-1 inline" />,
+    Security: <Lock className="w-4 h-4 mr-1 inline" />,
+  };
 
   return (
     <SignedIn>
@@ -62,12 +71,13 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`font-medium text-sm sm:text-base transition ${
+                    className={`font-medium text-sm sm:text-base transition flex items-center ${
                       isActive
                         ? "text-green-800 dark:text-green-200 underline"
                         : "text-green-600 dark:text-green-400 hover:underline"
                     }`}
                   >
+                    {navIcons[label]}
                     {label}
                   </Link>
                 );
@@ -81,7 +91,11 @@ export default function DashboardLayout() {
                 className="p-2 rounded-full bg-green-200 dark:bg-green-700 hover:bg-green-300 dark:hover:bg-green-600 transition"
                 aria-label="Toggle Dark Mode"
               >
-                {isDark ? <Sun className="w-5 h-5 text-green-100" /> : <Moon className="w-5 h-5 text-green-900" />}
+                {isDark ? (
+                  <Sun className="w-5 h-5 text-green-100" />
+                ) : (
+                  <Moon className="w-5 h-5 text-green-900" />
+                )}
               </button>
 
               <UserButton />
@@ -101,7 +115,7 @@ export default function DashboardLayout() {
             </div>
           </div>
 
-          {/* Mobile nav  + X nav menu*/} 
+          {/* Mobile nav */}
           {mobileMenuOpen && (
             <nav className="md:hidden mt-2 flex flex-col gap-2 bg-green-50 dark:bg-gray-800 rounded-xl p-2">
               {navLinks.map((label) => {
@@ -111,13 +125,14 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`font-medium text-base transition ${
+                    className={`font-medium text-base transition flex items-center ${
                       isActive
                         ? "text-green-800 dark:text-green-200 underline"
                         : "text-green-600 dark:text-green-400 hover:underline"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    {navIcons[label]}
                     {label}
                   </Link>
                 );
