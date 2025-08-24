@@ -45,24 +45,16 @@ export default function DashboardLayout() {
 
         <header className="bg-white dark:bg-gray-800 shadow px-4 sm:px-6 py-2 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            {/* Logo and title */}
+            {/* Logo */}
             <div className="flex items-center gap-2 flex-wrap">
               <img
                 src={logo}
                 alt="MetaPeek Logo"
                 className="w-8 h-8 sm:w-12 sm:h-12 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
               />
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 flex items-center">
-                METAPEEK
-                <sup>
-                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-gray-400 dark:border-gray-600 text-[8px] font-bold ml-1">
-                    ™
-                  </span>
-                </sup>
-              </h1>
             </div>
 
-            {/* Desktop nav */}
+            {/* Desktop nav (icons only) */}
             <nav className="hidden md:flex text-gray-100 gap-6 items-center">
               {navLinks.map((label) => {
                 const path = `/app/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
@@ -71,20 +63,19 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`flex flex-col items-center text-sm sm:text-base transition ${
+                    className={`flex flex-col items-center p-2 rounded-md transition ${
                       isActive
-                        ? "text-green-800 dark:text-green-200"
-                        : "text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
+                        ? "bg-green-100 dark:bg-green-700"
+                        : "hover:bg-green-200 dark:hover:bg-green-600"
                     }`}
                   >
                     {navIcons[label]}
-                    <span className="font-medium">{label}</span>
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Theme + User + Mobile menu button */}
+            {/* Theme + Mobile menu button */}
             <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={toggleTheme}
@@ -97,8 +88,6 @@ export default function DashboardLayout() {
                   <Moon className="w-5 h-5 text-green-900" />
                 )}
               </button>
-
-              <UserButton />
 
               {/* Mobile menu toggle */}
               <button
@@ -115,7 +104,7 @@ export default function DashboardLayout() {
             </div>
           </div>
 
-          {/* Mobile nav */}
+          {/* Mobile nav + user menu */}
           {mobileMenuOpen && (
             <nav className="md:hidden mt-2 flex flex-col gap-2 bg-green-50 dark:bg-gray-800 rounded-xl p-2">
               {navLinks.map((label) => {
@@ -125,18 +114,22 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`flex flex-col items-center text-base transition ${
+                    className={`flex flex-col items-center p-2 rounded-md transition ${
                       isActive
-                        ? "text-green-800 dark:text-green-200"
-                        : "text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
+                        ? "bg-green-100 dark:bg-green-700"
+                        : "hover:bg-green-200 dark:hover:bg-green-600"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {navIcons[label]}
-                    <span className="font-medium">{label}</span>
                   </Link>
                 );
               })}
+
+              {/* User menu inside mobile nav */}
+              <div className="mt-2 border-t border-green-300 dark:border-green-600 pt-2 flex justify-center">
+                <UserButton />
+              </div>
             </nav>
           )}
         </header>
