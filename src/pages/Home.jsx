@@ -234,7 +234,7 @@ export default function HomePage() {
               {!showMetadata ? (
                 <button
                   onClick={handleScanClick}
-                  className="w-[200px] px-4 py-2 bg-green-600 hover:bg-blue-700 text-white font-medium rounded-xl"
+                  className="w-[200px] px-2 py-2 bg-green-600 hover:bg-blue-700 text-white font-medium rounded-xl"
                 >
                   {scanning ? "Scanning..." : "Extract"}
                 </button>
