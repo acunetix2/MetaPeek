@@ -30,12 +30,12 @@ export default function DashboardLayout() {
   const navLinks = ["Home", "About", "Docs", "Privacy", "Terms", "Security"];
 
   const navIcons = {
-    Home: <Home className="w-4 h-4 mr-1 inline" />,
-    About: <Info className="w-4 h-4 mr-1 inline" />,
-    Docs: <BookOpen className="w-4 h-4 mr-1 inline" />,
-    Privacy: <Shield className="w-4 h-4 mr-1 inline" />,
-    Terms: <FileText className="w-4 h-4 mr-1 inline" />,
-    Security: <Lock className="w-4 h-4 mr-1 inline" />,
+    Home: <Home className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
+    About: <Info className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
+    Docs: <BookOpen className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
+    Privacy: <Shield className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
+    Terms: <FileText className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
+    Security: <Lock className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
   };
 
   return (
@@ -71,14 +71,14 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`font-medium text-sm sm:text-base transition flex items-center ${
+                    className={`flex flex-col items-center text-sm sm:text-base transition ${
                       isActive
-                        ? "text-green-800 dark:text-green-200 underline"
-                        : "text-green-600 dark:text-green-400 hover:underline"
+                        ? "text-green-800 dark:text-green-200"
+                        : "text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
                     }`}
                   >
                     {navIcons[label]}
-                    {label}
+                    <span className="font-medium">{label}</span>
                   </Link>
                 );
               })}
@@ -125,15 +125,15 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`font-medium text-base transition flex items-center ${
+                    className={`flex flex-col items-center text-base transition ${
                       isActive
-                        ? "text-green-800 dark:text-green-200 underline"
-                        : "text-green-600 dark:text-green-400 hover:underline"
+                        ? "text-green-800 dark:text-green-200"
+                        : "text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {navIcons[label]}
-                    {label}
+                    <span className="font-medium">{label}</span>
                   </Link>
                 );
               })}
