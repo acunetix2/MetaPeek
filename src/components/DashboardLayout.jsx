@@ -30,12 +30,12 @@ export default function DashboardLayout() {
   const navLinks = ["Home", "About", "Docs", "Privacy", "Terms", "Security"];
 
   const navIcons = {
-    Home: <Home className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
-    About: <Info className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
-    Docs: <BookOpen className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
-    Privacy: <Shield className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
-    Terms: <FileText className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
-    Security: <Lock className="w-6 h-6 mb-1 text-green-600 dark:text-green-400" />,
+    Home: <Home className="w-6 h-6 text-green-600 dark:text-green-400" />,
+    About: <Info className="w-6 h-6 text-green-600 dark:text-green-400" />,
+    Docs: <BookOpen className="w-6 h-6 text-green-600 dark:text-green-400" />,
+    Privacy: <Shield className="w-6 h-6 text-green-600 dark:text-green-400" />,
+    Terms: <FileText className="w-6 h-6 text-green-600 dark:text-green-400" />,
+    Security: <Lock className="w-6 h-6 text-green-600 dark:text-green-400" />,
   };
 
   return (
@@ -52,17 +52,9 @@ export default function DashboardLayout() {
                 alt="MetaPeek Logo"
                 className="w-8 h-8 sm:w-12 sm:h-12 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
               />
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 flex items-center">
-                METAPEEK
-                <sup>
-                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-gray-400 dark:border-gray-600 text-[8px] font-bold ml-1">
-                    ™
-                  </span>
-                </sup>
-              </h1>
             </div>
 
-            {/* Desktop nav */}
+            {/* Desktop nav (icons only) */}
             <nav className="hidden md:flex text-gray-100 gap-6 items-center">
               {navLinks.map((label) => {
                 const path = `/app/${label.toLowerCase() === "home" ? "" : label.toLowerCase()}`;
@@ -71,14 +63,13 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`flex flex-col items-center text-sm sm:text-base transition ${
+                    className={`flex items-center justify-center p-2 rounded-md transition ${
                       isActive
-                        ? "text-green-800 dark:text-green-200"
-                        : "text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
+                        ? "bg-green-100 dark:bg-green-700"
+                        : "hover:bg-green-200 dark:hover:bg-green-600"
                     }`}
                   >
                     {navIcons[label]}
-                    <span className="font-medium">{label}</span>
                   </Link>
                 );
               })}
@@ -115,7 +106,7 @@ export default function DashboardLayout() {
             </div>
           </div>
 
-          {/* Mobile nav */}
+          {/* Mobile nav (icons only) */}
           {mobileMenuOpen && (
             <nav className="md:hidden mt-2 flex flex-col gap-2 bg-green-50 dark:bg-gray-800 rounded-xl p-2">
               {navLinks.map((label) => {
@@ -125,15 +116,14 @@ export default function DashboardLayout() {
                   <Link
                     key={label}
                     to={path}
-                    className={`flex flex-col items-center text-base transition ${
+                    className={`flex items-center justify-center p-2 rounded-md transition ${
                       isActive
-                        ? "text-green-800 dark:text-green-200"
-                        : "text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
+                        ? "bg-green-100 dark:bg-green-700"
+                        : "hover:bg-green-200 dark:hover:bg-green-600"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {navIcons[label]}
-                    <span className="font-medium">{label}</span>
                   </Link>
                 );
               })}
