@@ -27,7 +27,7 @@ export default function HomePage() {
     }
   };
 
-  // Format helpers
+  // Format
   const formatAperture = (val) =>
     val ? `f/${parseFloat(val).toFixed(1)}` : "N/A";
   const formatShutterSpeed = (val) => {
@@ -37,7 +37,7 @@ export default function HomePage() {
   const formatFocalLength = (val) =>
     val ? `${parseFloat(val).toFixed(0)}mm` : "N/A";
 
-  // Handle image selection
+  //image selection
   const handleImageSelect = async (file) => {
     if (!file || !file.type.startsWith("image/"))
       return alert("Please upload a valid image file.");
@@ -78,7 +78,7 @@ export default function HomePage() {
     img.src = URL.createObjectURL(file);
 
     img.onload = () => {
-      // 🔎 Extract possible links from metadata values
+      // Extract possible links 
       const urlRegex = /(https?:\/\/[^\s]+)/gi;
       let links = [];
 
@@ -157,7 +157,7 @@ export default function HomePage() {
         Software: metadata.Software || "N/A",
         MakerNotes: metadata.MakerNote ? "[Present]" : "N/A",
 
-        // ✅ Extra EXIF fields
+        // Extra EXIF fields
         Instructions: metadata.Instructions || "N/A",
         AuthorsPosition: metadata.AuthorsPosition || "N/A",
         Credit: metadata.Credit || "N/A",
@@ -167,7 +167,7 @@ export default function HomePage() {
         Country: metadata.Country || "N/A",
         TransmissionReference: metadata.TransmissionReference || "N/A",
 
-        // ✅ Extracted links
+        //  Extracted links
         Links: links.length > 0 ? links : "N/A",
       };
 
@@ -236,7 +236,7 @@ export default function HomePage() {
                   onClick={handleScanClick}
                   className="w-[200px] px-4 py-2 bg-green-600 hover:bg-blue-700 text-white font-medium rounded-xl"
                 >
-                  {scanning ? "Scanning..." : "Run"}
+                  {scanning ? "Scanning..." : "Extract"}
                 </button>
               ) : (
                 <button

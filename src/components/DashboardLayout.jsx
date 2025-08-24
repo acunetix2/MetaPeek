@@ -84,7 +84,6 @@ export default function DashboardLayout() {
               })}
             </nav>
 
-            {/* Theme + User + Mobile menu button */}
             <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={toggleTheme}
@@ -141,7 +140,6 @@ export default function DashboardLayout() {
                 );
               })}
 
-              {/* Add UserButton inside mobile menu */}
               <div className="flex justify-center mt-2">
                 <UserButton />
               </div>

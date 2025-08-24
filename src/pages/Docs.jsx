@@ -56,7 +56,7 @@ export default function Docs() {
           <ol className="list-decimal ml-6 mt-3 space-y-2 text-gray-700 dark:text-gray-300">
 		    <li>Drag and drop an image or browse to add an imgage (You can also insert image link) </li>
             <li>Click the <strong>“Upload Image”</strong> button.</li>
-			<li>After the image is previewed, click on <strong>"Scan"</strong> to extract image info</li>
+			<li>After the image is previewed, click on <strong>"Extract"</strong> to extract image info</li>
             <li>Wait a few seconds while MetaPeek extracts the metadata.</li>
             <li>Explore details both in tabular readable and Json format.</li>
 			<li>Lastly, Copy the details and click <strong>"Clear Image"</strong> when done.</li>
