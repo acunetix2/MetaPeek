@@ -34,7 +34,7 @@ export default function LandingPage() {
       setShowLoading(true);
       const timer = setTimeout(() => {
         navigate("/app");
-      }, 2500); //loading screen before redirect..
+      }, 3000); //loading screen before redirect..
       return () => clearTimeout(timer);
     }
   }, [isSignedIn, navigate]);
@@ -100,7 +100,7 @@ export default function LandingPage() {
         <SignedOut>
           <SignInButton mode="modal">
             <button className="bg-green-500 text-gray-900 font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
-              Get Started
+              Sign In
             </button>
           </SignInButton>
         </SignedOut>
@@ -158,19 +158,7 @@ export default function LandingPage() {
         </nav>
       )}
     </header>
-      <section>
-        <div className="ticker-bar bg-gradient-to-r from-green-600 via-blue-500 to-pink-500 text-white dark:from-green-800 dark:via-blue-700 dark:to-pink-700 h-3 sm:h-5 overflow-hidden flex items-center sticky top-[72px] z-40">
-          <div className="ticker-content whitespace-nowrap text-xs sm:text-sm animate-[ticker-scroll_15s_linear_infinite] px-4 flex gap-6">
-            <span>Trusted</span>
-            <span>•</span>
-            <span>Secure Metadata Extraction</span>
-            <span>•</span>
-            <span>Powered by MetaPeek</span>
-            <span>•</span>
-            <span>See beyond just graphics</span>
-          </div>
-        </div>
-      </section>
+
       {/* Hero Section */}
       <section className="text-center py-16 px-6">
         <h2 className="text-4xl md:text-4xl font-extrabold mb-4">

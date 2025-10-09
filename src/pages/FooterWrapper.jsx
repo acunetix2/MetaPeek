@@ -13,7 +13,7 @@ export default function FooterWrapper() {
 
     const href = target.getAttribute("href");
     if (href === "/app/privacy" || href === "app/terms" || href === "app/security") {
-      e.preventDefault(); // stop navigation
+      e.preventDefault(); 
       if (href === "/app/privacy") setActivePage("privacy");
       else if (href === "/app/terms") setActivePage("terms");
       else if (href === "/app/security") setActivePage("security");
@@ -31,7 +31,7 @@ export default function FooterWrapper() {
       </div>
 
       {/* Original footer remains unchanged */}
-      <Footer />
+      
     </div>
   );
 }

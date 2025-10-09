@@ -251,7 +251,7 @@ export default function HomePage() {
                   onClick={() => setShowRaw(!showRaw)}
                   className="w-[200px] px-4 py-2 bg-gray-700 hover:bg-gray-900 text-white font-medium rounded-xl"
                 >
-                  {showRaw ? "Hide Raw Metadata" : "Show Raw Metadata"}
+                  {showRaw ? "Hide" : "JSON"}
                 </button>
               )}
             </div>
