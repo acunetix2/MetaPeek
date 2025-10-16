@@ -49,8 +49,6 @@ export default function LandingPage() {
     );
     return () => clearInterval(interval);
   }, [screenshots.length]);
-
-  // Show loading screen if signed in and waiting
   if (showLoading) {
     return <LoadingScreen />;
   }
@@ -58,14 +56,14 @@ export default function LandingPage() {
   return (
     <div className="bg-gray-900 text-white font-sans">
       {/* Navbar */}
-		  <header className="flex justify-between items-center px-8 py-6 border-b border-gray-800 shadow-md bg-gray-900 sticky top-0 z-50">
+		  <header className="flex justify-between items-center px-8 py-2 border-b border-gray-800 shadow-md bg-gray-900 sticky top-0 z-50">
       {/* Left */}
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
           <img
             src={logo}
             alt="Metapeek Logo"
-            className="w-14 h-14 md:w-20 md:h-20 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+            className="w-2 h-2 md:w-8 md:h-8 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
           />
           <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
             MetaPeek
@@ -73,22 +71,22 @@ export default function LandingPage() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-4 font-sans tracking-wide text-gray-200 text-lg md:text-base">
+        <nav className="hidden md:flex items-center gap-3 font-sans tracking-wide text-white text-1xl  md:text-base">
           <a
             href="#screenshots"
-            className="hover:text-green-400 transition-colors duration-300 font-semibold"
+            className="hover:text-green-400 transition-colors duration-300 "
           >
             Demo
           </a>
           <a
             href="#features"
-            className="hover:text-green-400 transition-colors duration-300 font-semibold"
+            className="hover:text-green-400 transition-colors duration-300 "
           >
             Features
           </a>
           <a
             href="#howitworks"
-            className="hover:text-green-400 transition-colors duration-300 font-semibold"
+            className="hover:text-green-400 transition-colors duration-300 "
           >
             Workflow
           </a>
@@ -99,7 +97,7 @@ export default function LandingPage() {
       <div className="hidden md:flex items-center gap-4">
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="bg-green-500 text-gray-900 font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
+            <button className="bg-blue-500 text-gray-900 font-semibold px-2 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
               Sign In
             </button>
           </SignInButton>
@@ -119,25 +117,25 @@ export default function LandingPage() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-gray-800 flex flex-col items-center gap-6 py-6 md:hidden">
+        <nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-gray-800 flex flex-col items-center gap-6 py-4 md:hidden">
           <a
             href="#screenshots"
             onClick={() => setIsOpen(false)}
-            className="hover:text-green-400 transition-colors duration-300 font-semibold text-lg"
+            className="hover:text-green-400 transition-colors duration-300 text-1xl"
           >
             Demo
           </a>
-          <a
+          <button
             href="#features"
             onClick={() => setIsOpen(false)}
-            className="hover:text-green-400 transition-colors duration-300 font-semibold text-lg"
+            className="hover:text-green-400 transition-colors duration-300  text-1xl"
           >
             Features
-          </a>
+          </button>
           <a
             href="#howitworks"
             onClick={() => setIsOpen(false)}
-            className="hover:text-green-400 transition-colors duration-300 font-semibold text-lg"
+            className="hover:text-green-400 transition-colors duration-300 text-1xl"
           >
             Workflow
           </a>
@@ -160,27 +158,25 @@ export default function LandingPage() {
     </header>
 
       {/* Hero Section */}
-      <section className="text-center py-16 px-6">
-        <h2 className="text-4xl md:text-4xl font-extrabold mb-4">
-          {" "} <span className="text-green-500">MetaPeek</span>: Your window into the hidden data of every image.
+      <section className=" py-12 px-6">
+        <h2 className="text-3xl text-left md:text-3xl font-extrabold mb-3">
+           Your window into the hidden data of every image.
         </h2>
-        <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-6">
-          Discover hidden details and metadata in images instantly. MetaPeek is
-          your professional suite for forensic image analysis, anomaly
-          detection, and structured reporting designed for teams that need
-          accuracy, auditability, and speed.
+        <p className=" text-white-400 text-left max-w-3xl mx-auto mb-6">
+          A professional simplified image forensics tool, it extract information in images from basic metadata to technical information. 
+          It is a browser-based metadata analysis tool that allows users to extract and interpret hidden data within image files such as camera details, timestamps, and GPS coordinates without uploading files to external servers.
         </p>
         <div className="flex gap-2 justify-center">
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="bg-green-500 px-3 py-1 text-sm rounded hover:bg-green-600 transition">
+              <button className="border border-green-500 px-3 py-1 text-sm rounded hover:bg-green-500 hover:text-white transition">
                 Get Started
               </button>
             </SignInButton>
           </SignedOut>
           <a
             href="#features"
-            className="border border-green-500 px-3 py-1 text-sm rounded hover:bg-green-500 hover:text-white transition"
+            className="border border-green-500 px-3 py-1 text-sm rounded hover:bg-blue-700 hover:text-white transition"
           >
             Learn More
           </a>
@@ -188,19 +184,19 @@ export default function LandingPage() {
       </section>
 
       {/* Right content*/}
-      <section id="screenshots" className="py-10 px-8">
+      <section id="screenshots" className="py-8 px-8">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div className="text-left">
-            <h3 className="text-2xl font-bold text-green-500 mb-3">
+            <h3 className="text-1xl font-bold text-white-500 mb-3">
               User Experience
             </h3>
-            <p className="text-gray-400 mb-3 text-1xl ">
+            <p className="text-white-500 mb-3 text-1xl ">
               Experience real-time visual forensics and metadata parsing.
               MetaPeek detects hidden edits, flags anomalies, and surfaces the
               facts so you can act with confidence.
             </p>
-            <p className="text-gray-400 text-1xl">
+            <p className="text-white-500 text-1xl">
               From compliance reviews to investigative workflows, MetaPeek
               translates raw image data into reliable insights and shareable
               reports.

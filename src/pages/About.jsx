@@ -4,7 +4,7 @@ import { InfoIcon } from "lucide-react";
 export default function About() {
   const owner = {
     name: "Iddy Chesire",
-    role: "Cybersecurity Enthusiast & Developer",
+    role: "Cybersecurity, AI, Networking & MERN Developer",
     bio: "Focused on building privacy-respecting open-source intelligence tools.",
     image: "https://api.dicebear.com/7.x/initials/svg?seed=Iddy%20Chesire",
   };
@@ -41,7 +41,7 @@ export default function About() {
         <ul className="list-disc ml-6 mb-4 text-gray-700 dark:text-gray-300 space-y-1">
           <li>Displays key metadata such as camera model, date, and resolution.</li>
           <li>Maps photo locations using embedded GPS information.</li>
-          <li>Processes multiple files directly in the browser — no uploads.</li>
+          <li>Processes multiple files directly in the browser.</li>
           <li>Provides privacy-first analysis suitable for investigations.</li>
           <li>Helps verify image authenticity and detect tampering.</li>
         </ul>

@@ -12,6 +12,7 @@ import TermsPage from "@/pages/Terms";
 import SecurityPage from "@/pages/Security";
 import LoadingScreen from "@/pages/LoadingScreen";
 import { Toaster } from "@/components/ui/sonner";
+import VideoAnalysisPage from "@/pages/VideoAnalysisPage";
 
 export default function App() {
   const { isSignedIn } = useUser();
@@ -56,6 +57,7 @@ export default function App() {
               <Route path="privacy" element={<PrivacyPage />} />
               <Route path="terms" element={<TermsPage />} />
               <Route path="security" element={<SecurityPage />} />
+			  <Route path="video" element={<VideoAnalysisPage />} />
             </Route>
 
             {/* Catch-all redirect */}

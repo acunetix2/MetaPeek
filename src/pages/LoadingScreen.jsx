@@ -8,7 +8,7 @@ export default function Loading({ onFinish }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => (prev >= 100 ? 100 : prev + 1));
+      setProgress((prev) => (prev >= 100 ? 100 : prev + 10));
     }, 50);
 
     if (progress >= 100) {
@@ -128,7 +128,7 @@ export default function Loading({ onFinish }) {
           <div className="border border-cyan-400/30 bg-slate-900/40 backdrop-blur-sm p-3 sm:p-4 rounded">
             <div className="flex items-center justify-between mb-2 sm:mb-3">
               <div className="text-green-500 text-[8px] sm:text-xs tracking-widest">
-                METAPEEK IMAGE FORENSIC TOOL 
+                METAPEEK FORENSIC TOOL 
               </div>
               <div className="flex space-x-1">
                 {[1, 2, 3].map((i) => (

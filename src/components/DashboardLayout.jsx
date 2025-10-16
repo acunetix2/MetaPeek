@@ -17,6 +17,8 @@ import {
   Shield,
   FileText,
   Lock,
+  Video,
+  Image,
 } from "lucide-react";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
@@ -43,9 +45,10 @@ export default function DashboardLayout() {
   };
 
   const navItems = [
-    { id: "/app", label: "Home", icon: <Home size={18} /> },
+    { id: "/app", label: "Image Analysis", icon: <Image size={18} /> },
+	{ id: "/app/video", label: "Video Analysis", icon: <Video size={18} />  },
     { id: "/app/about", label: "About", icon: <Info size={18} /> },
-    { id: "/app/docs", label: "Docs", icon: <BookOpen size={18} /> },
+    { id: "/app/docs", label: "Documentation", icon: <BookOpen size={18} /> },
     { id: "/app/privacy", label: "Privacy", icon: <Shield size={18} /> },
     { id: "/app/terms", label: "Terms", icon: <FileText size={18} /> },
     { id: "/app/security", label: "Security", icon: <Lock size={18} /> },
@@ -70,7 +73,7 @@ export default function DashboardLayout() {
             <h1 className="text-xl font-bold text-green-600 dark:text-green-400 tracking-tight">
               MetaPeek
             </h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-green-600 dark:text-blue-500">
               Trusted • Secure • Metadata
             </p>
           </div>
@@ -89,7 +92,7 @@ export default function DashboardLayout() {
                       ${
                         isActive(item.id)
                           ? "bg-green-600 text-white shadow-md"
-                          : "text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-700 hover:text-green-800 dark:hover:text-green-200"
+                          : "text-blue-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-blue-700 hover:text-green-800 dark:hover:text-green-200"
                       }`}
                   >
                     {item.icon}
