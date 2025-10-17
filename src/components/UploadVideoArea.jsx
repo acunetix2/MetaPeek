@@ -1,7 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, Link2, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 export default function UploadVideoArea({ onVideoSelect }) {
   const fileRef = useRef(null);
@@ -14,11 +15,12 @@ export default function UploadVideoArea({ onVideoSelect }) {
     const file = e.target.files?.[0];
     if (file && file.type.startsWith("video/")) {
       onVideoSelect(file);
+      toast.success(`✅ ${file.name} uploaded successfully`);
     } else {
-      alert("Please select a valid video file.");
+      toast.error("⚠️ Please select a valid video file (MP4, WebM).");
     }
 
-    // Reset input so user can re-upload the same file
+    // Reset input for re-uploads
     e.target.value = "";
   };
 
@@ -29,8 +31,9 @@ export default function UploadVideoArea({ onVideoSelect }) {
     const file = e.dataTransfer.files?.[0];
     if (file && file.type.startsWith("video/")) {
       onVideoSelect(file);
+      toast.success(` ${file.name} added successfully`);
     } else {
-      alert("Only video files are supported.");
+      toast.error("❌ Only video files are supported.");
     }
   };
 
@@ -49,10 +52,12 @@ export default function UploadVideoArea({ onVideoSelect }) {
       const response = await fetch(videoUrl);
       const blob = await response.blob();
       if (!blob.type.startsWith("video/")) throw new Error("Invalid video URL");
+
       const file = new File([blob], "video-from-url.mp4", { type: blob.type });
       onVideoSelect(file);
+      toast.success("🌐Video loaded successfully from URL");
     } catch {
-      alert("Could not load video from URL.");
+      toast.error("🚫 Could not load video from the provided URL.");
     } finally {
       setIsLoading(false);
     }

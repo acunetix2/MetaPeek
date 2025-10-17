@@ -3,6 +3,8 @@ import UploadVideoArea from "@/components/UploadVideoArea";
 import VideoPreview from "@/components/VideoPreview";
 import VideoMetadataCard from "@/components/VideoMetadataCard";
 import ReactJson from "react-json-view";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 export default function VideoAnalysisPage() {
   // ---------- STATE ----------
@@ -102,7 +104,7 @@ export default function VideoAnalysisPage() {
   // ---------- FILE SELECTION ----------
   const handleVideoSelect = async (file) => {
     if (!file || !file.type.startsWith("video/")) {
-      alert("Please upload a valid video file.");
+      toast.error("⚠️ Please upload a valid video file.");
       return;
     }
 
@@ -115,17 +117,28 @@ export default function VideoAnalysisPage() {
     setVideoInfo(null);
     setShowMetadata(false);
     setShowRaw(false);
-    setScanning(true);
+    toast.success("🎥 Video uploaded successfully!");
+  };
 
+  // ---------- EXTRACT ----------
+  const handleExtract = async () => {
+    if (!file) {
+      toast.error("Please upload a video first!");
+      return;
+    }
+
+    setScanning(true);
     const videoEl = document.createElement("video");
+
     try {
       const extracted = await extractVideoMetadata(file, videoEl);
       setMetadata(extracted);
       setVideoInfo(extracted);
       setShowMetadata(true);
+      toast.success("✅ Metadata extracted successfully!");
     } catch (err) {
       console.error(err);
-      alert("Error reading video metadata.");
+      toast.error("🚫 Error reading video metadata.");
     } finally {
       setScanning(false);
     }
@@ -141,6 +154,7 @@ export default function VideoAnalysisPage() {
     setShowMetadata(false);
     setShowRaw(false);
     setScanning(false);
+    toast.info("🧹 Cleared all data.");
   };
 
   // ---------- CLEANUP ----------
@@ -178,7 +192,26 @@ export default function VideoAnalysisPage() {
             <VideoPreview videoUrl={videoUrl} />
 
             {/* Action Buttons */}
-            <div className="mt-4 flex flex-col sm:flex-row gap-4">
+            <div className="mt-4 flex flex-wrap gap-4">
+              <button
+                onClick={handleExtract}
+                disabled={scanning}
+                className={`w-[200px] px-4 py-2 font-medium rounded-xl transition-all duration-200 ${
+                  scanning
+                    ? "bg-blue-400 cursor-not-allowed text-white"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                }`}
+              >
+                {scanning ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Extracting...
+                  </span>
+                ) : (
+                  "Scan"
+                )}
+              </button>
+
               <button
                 onClick={handleClear}
                 className="w-[200px] px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-xl transition-all duration-200"

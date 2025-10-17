@@ -47,6 +47,7 @@ export default function DashboardLayout() {
   const navItems = [
     { id: "/app", label: "Image Analysis", icon: <Image size={18} /> },
 	{ id: "/app/video", label: "Video Analysis", icon: <Video size={18} />  },
+	{ id: "/app/document", label: "Document Analysis", icon: <BookOpen size={18} /> },
     { id: "/app/about", label: "About", icon: <Info size={18} /> },
     { id: "/app/docs", label: "Documentation", icon: <BookOpen size={18} /> },
     { id: "/app/privacy", label: "Privacy", icon: <Shield size={18} /> },

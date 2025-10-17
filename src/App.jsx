@@ -13,6 +13,7 @@ import SecurityPage from "@/pages/Security";
 import LoadingScreen from "@/pages/LoadingScreen";
 import { Toaster } from "@/components/ui/sonner";
 import VideoAnalysisPage from "@/pages/VideoAnalysisPage";
+import DocumentAnalysis from "@/pages/DocumentAnalysis";
 
 export default function App() {
   const { isSignedIn } = useUser();
@@ -58,6 +59,7 @@ export default function App() {
               <Route path="terms" element={<TermsPage />} />
               <Route path="security" element={<SecurityPage />} />
 			  <Route path="video" element={<VideoAnalysisPage />} />
+			  <Route path="document" element={<DocumentAnalysis />} />
             </Route>
 
             {/* Catch-all redirect */}
