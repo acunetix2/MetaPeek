@@ -4,8 +4,8 @@ import { InfoIcon } from "lucide-react";
 export default function About() {
   const owner = {
     name: "Iddy Chesire",
-    role: "Cybersecurity, AI, Networking & MERN Developer",
-    bio: "Dedicated to building privacy-respecting open-source intelligence and digital analysis tools.",
+    role: "Cybersecurity Analyst | AI Enthusiast | Networking | MERN Developer | Tryhackme Top 3%",
+    bio: "Security Researcher: Integration between AI and CyberSecurity",
     image: "https://api.dicebear.com/7.x/initials/svg?seed=Iddy%20Chesire",
   };
 
