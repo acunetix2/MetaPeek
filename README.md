@@ -1,33 +1,39 @@
-<img src="./src/assets/logo.png" alt="Metapeek Logo" width="200" /> <br>
-# Metapeek
-*Your window into the hidden data of every image.*
 
-Metapeek is a cutting-edge **image forensics and metadata analysis platform** designed to help users extract, inspect, and visualize metadata from images and media files. It offers an intuitive interface for both technical and non-technical users to perform detailed image analysis, verify authenticity, and gain insights from embedded metadata.
+---
+<img src="./src/assets/logo.png" alt="NeuroScan Logo" width="200" /> <br>
+
+# NeuroScan
+*Your window into the hidden data of every file.*
+
+**NeuroScan** is an advanced **metadata and content analysis platform** built to extract, inspect, and visualize metadata from **documents, images, and videos**.  
+It empowers users — from digital forensics experts to everyday analysts — to explore hidden file information, verify authenticity, and gain insights from embedded data with precision and ease.
 
 ---
 
 ## Features
 
-- **Image Upload & Preview**: Easily upload images in various formats (JPEG, PNG, HEIC, etc.) and preview them in-app.  
-- **Metadata Extraction**: Extract EXIF, IPTC, XMP, GPS, and other metadata from images using advanced parsing libraries.  
-- **Interactive Metadata Viewer**: Display metadata in an organized and readable JSON format.  
-- **Map Viewer**: Visualize GPS coordinates from image metadata on an interactive map.  
-- **Data Privacy First**: All analysis runs locally in the browser; no data is sent to external servers.  
-- **Light & Dark Mode**: Toggle between themes for optimal viewing.  
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices.  
-- **Watermarking**: Customizable watermark overlay for branding purposes on reports (e.g., "Metapeek").  
+- **Multi-File Support**: Upload and analyze **documents (PDF, DOCX, PPTX)**, **images (JPEG, PNG, HEIC)**, and **videos (MP4, MOV, AVI)**.
+- **Smart Metadata Extraction**: Retrieve EXIF, XMP, IPTC, GPS, author info, timestamps, codecs, and embedded properties.
+- **Content Analysis**: Detect hidden details, view document properties, and check media integrity.
+- **Interactive Metadata Viewer**: Explore metadata in a clean, structured, and searchable JSON layout.
+- **Preview Mode**: Instantly preview files before and after analysis.
+- **Map Integration**: Visualize GPS or geolocation metadata on an interactive map.
+- **Privacy First**: All analysis is processed locally in your browser — no data leaves your device.
+- **Dark & Light Modes**: Switch between modern themes for better readability.
+- **Responsive UI**: Works smoothly on desktop, tablet, and mobile.
+- **Custom Watermarking**: Add personalized watermarks (e.g., “NeuroScan Verified”) for reports.
 
 ---
 
 ## Screenshots
 
-<img src="./src/assets/screenshot1.png" alt="metapeek" width="400" />
+<img src="./src/assets/screenshot1.png" alt="neuroscan" width="400" />
 
-<img src="./src/assets/screenshot2.png" alt="metapeek" width="400" />
+<img src="./src/assets/screenshot2.png" alt="neuroscan" width="400" />
 
-<img src="./src/assets/screenshot3.png" alt="metapeek" width="400" />
+<img src="./src/assets/screenshot3.png" alt="neuroscan" width="400" />
 
-<img src="./src/assets/screenshot4.png" alt="metapeek" width="400" />
+<img src="./src/assets/screenshot4.png" alt="neuroscan" width="400" />
 
 ---
 
@@ -43,8 +49,9 @@ Metapeek is a cutting-edge **image forensics and metadata analysis platform** de
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/acunetix2/metapeek.git
-cd metapeek
+git clone https://github.com/acunetix2/NeuroScan.git
+cd neuroscan
+````
 
 2. Install dependencies:
 
@@ -68,41 +75,59 @@ npm run dev
 
 ## Usage
 
-1. Navigate to the **Upload Area** on the homepage.
-2. Drag and drop an image or select one from your device.
-3. View extracted metadata in the **Metadata Card** panel.
-4. If GPS coordinates exist, open the **Map Viewer** to see the location.
-5. Use the **Search** and **Filter** options to explore metadata efficiently.
+1. Go to the **Upload Area** on the homepage.
+2. Upload a **document**, **image**, or **video** file.
+3. View all extracted metadata in the **Metadata Panel**.
+4. Use the **Map Viewer** to see any embedded GPS data.
+5. Filter or search through metadata fields efficiently.
+6. Export or copy metadata results as needed.
 
 ---
 
 ## Contributing
 
-We welcome contributions to improve Metapeek! To contribute:
+We welcome contributions to enhance NeuroScan!
+To contribute:
 
 1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature-name`.
-3. Make your changes and commit: `git commit -m "Add your feature"`.
-4. Push to your branch: `git push origin feature/your-feature-name`.
-5. Open a Pull Request on GitHub.
+2. Create a new branch:
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your updates and commit:
+
+   ```bash
+   git commit -m "Add your feature"
+   ```
+4. Push your branch:
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a **Pull Request** on GitHub.
 
 ---
 
 ## License
 
-Metapeek is released under the **MIT License**. See [LICENSE](./LICENSE) for details.
+**NeuroScan** is released under the **MIT License**.
+See [LICENSE](./LICENSE) for details.
 
 ---
 
 ## Contact
 
-For support or inquiries, contact:
+For support or collaboration:
 
-Email: [iddychesire098@gmail.com](mailto:iddychesire098@gmail.com)
-Website: [https://meta-peek.vercel.app](https://meta-peek.vercel.app)
+📧 Email: [iddychesire098@gmail.com](mailto:iddychesire098@gmail.com)
+🌐 Website: [https://meta-peek.vercel.app](https://meta-peek.vercel.app)
 
 ---
 
-*Metapeek – Your window into the hidden data of every image.*
+*NeuroScan – Your window into the hidden data of every file.*
 
 *Note: Still under development!*
+
+```
+
