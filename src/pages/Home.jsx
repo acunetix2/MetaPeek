@@ -206,18 +206,18 @@ export default function HomePage() {
           Welcome to NeuroScan
         </h1>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          NeuroScan is an image metadata scanner designed to help you uncover 
-          the hidden details behind your images. Whether you're a digital forensics 
-          analyst, a photographer reviewing camera information, or a developer 
-          validating media integrity, NeuroScan provides a clear, structured view of 
-          the metadata contained within your files.
-        </p>
-        <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
-          Quickly analyze information such as camera settings, timestamps, geolocation 
-          data, and descriptive tags all presented in an easy-to-read format. Gain 
-          deeper insights, detect anomalies, and make more informed decisions with 
-          confidence.
-        </p>
+		  NeuroScan is a powerful metadata analysis tool designed to help you uncover
+		  hidden and visible details across images, videos, and documents. Whether you're
+		  a digital forensics expert, a content creator validating media integrity, or a
+		  researcher reviewing embedded information, NeuroScan provides a clear, structured
+		  view of the data stored within your files.
+		</p>
+		<p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
+		  Instantly extract metadata such as camera settings, timestamps, file origins,
+		  geolocation data, document properties, and encoding details — all presented in
+		  an easy-to-read, organized format. Gain deeper insights, detect anomalies, and
+		  make informed decisions with precision and confidence.
+		</p>
       </div>
 
       {/* Upload */}
