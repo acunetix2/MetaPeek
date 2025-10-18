@@ -48,11 +48,8 @@ export default function DashboardLayout() {
     { id: "/app", label: "Image Analysis", icon: <Image size={18} /> },
 	{ id: "/app/video", label: "Video Analysis", icon: <Video size={18} />  },
 	{ id: "/app/document", label: "Document Analysis", icon: <BookOpen size={18} /> },
-    { id: "/app/about", label: "About", icon: <Info size={18} /> },
+    { id: "/app/about", label: "NeuroScan", icon: <Info size={18} /> },
     { id: "/app/docs", label: "Documentation", icon: <BookOpen size={18} /> },
-    { id: "/app/privacy", label: "Privacy", icon: <Shield size={18} /> },
-    { id: "/app/terms", label: "Terms", icon: <FileText size={18} /> },
-    { id: "/app/security", label: "Security", icon: <Lock size={18} /> },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -72,7 +69,7 @@ export default function DashboardLayout() {
               className="w-14 h-14 rounded-full shadow-md mb-2"
             />
             <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-700 tracking-tight select-none [font-family:'Phosire',sans-serif] animate-bounceGlow">
-			  MetaPeek
+			  NeuroScan
 			</h1>
             <p className="text-xs text-green-600 dark:text-blue-500">
               Trusted • Secure • Metadata
@@ -136,11 +133,11 @@ export default function DashboardLayout() {
               <div className="flex flex-col items-center px-6 mb-6">
                 <img
                   src={logo}
-                  alt="MetaPeek Logo"
+                  alt="NeuroScan Logo"
                   className="w-14 h-14 rounded-full shadow-md mb-2"
                 />
                 <h1 className="text-xl font-bold text-green-600 dark:text-green-400 tracking-tight">
-                  MetaPeek
+                  NeuroScan
                 </h1>
               </div>
 
@@ -183,7 +180,7 @@ export default function DashboardLayout() {
             <Button variant="ghost" size="icon" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
             </Button>
-            <h1 className="text-white font-semibold text-lg tracking-wide">MetaPeek</h1>
+            <h1 className="text-white font-semibold text-lg tracking-wide">NeuroScan</h1>
             <Button
               variant="ghost"
               size="icon"

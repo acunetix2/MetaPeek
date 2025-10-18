@@ -12,23 +12,32 @@ export default function Footer() {
 
           <div className="grid gap-8 md:grid-cols-3 text-left">
             <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition">
-              <h3 className="text-green-600 font-bold mb-2">Cybersecurity & Forensics</h3>
+              <h3 className="text-green-600 font-bold mb-2">
+                Cybersecurity & Forensics
+              </h3>
               <p className="text-gray-600 text-sm">
-                Detect doctored images, hidden metadata, and verify digital evidence integrity for investigations.
+                Detect doctored images, tampered videos, hidden metadata, and verify the
+                authenticity of digital evidence across media types.
               </p>
             </div>
 
             <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition">
-              <h3 className="text-green-600 font-bold mb-2">Media & Fact-Checking</h3>
+              <h3 className="text-green-600 font-bold mb-2">
+                Media & Fact-Checking
+              </h3>
               <p className="text-gray-600 text-sm">
-                Verify image authenticity for newsrooms, publishers, and fact-checking organizations to fight misinformation.
+                Analyze and verify visual and document authenticity for journalists,
+                publishers, and organizations combating misinformation.
               </p>
             </div>
 
             <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition">
-              <h3 className="text-green-600 font-bold mb-2">Enterprises & Compliance</h3>
+              <h3 className="text-green-600 font-bold mb-2">
+                Enterprises & Compliance
+              </h3>
               <p className="text-gray-600 text-sm">
-                Ensure product photos, claims, and documents meet compliance standards and prevent fraud.
+                Ensure corporate documents, media, and marketing content meet compliance
+                standards and maintain integrity across workflows.
               </p>
             </div>
           </div>
@@ -38,12 +47,12 @@ export default function Footer() {
       {/* Main Footer */}
       <footer className="bg-gray-900 text-gray-400 py-12 mt-0 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 text-left">
-          
           {/* Logo + Description */}
           <div>
-            <h1 className="text-2xl font-bold text-green-500 mb-4">MetaPeek</h1>
+            <h1 className="text-2xl font-bold text-green-500 mb-4">NeuroScan</h1>
             <p>
-              Uncover hidden details, detect anomalies, and gain actionable insights from images.
+              Uncover hidden details, detect anomalies, and gain actionable insights
+              from images, videos, and documents — all in one intelligent analysis suite.
             </p>
           </div>
 
@@ -51,10 +60,26 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="/about" className="hover:text-green-500 transition">About Us</a></li>
-              <li><a href="/team" className="hover:text-green-500 transition">Team</a></li>
-              <li><a href="/careers" className="hover:text-green-500 transition">Careers</a></li>
-              <li><a href="/contact" className="hover:text-green-500 transition">Contact</a></li>
+              <li>
+                <a href="/about" className="hover:text-green-500 transition">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/team" className="hover:text-green-500 transition">
+                  Team
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="hover:text-green-500 transition">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:text-green-500 transition">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -62,10 +87,26 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-4">Knowledge Center</h4>
             <ul className="space-y-2">
-              <li><a href="/features" className="hover:text-green-500 transition">Capabilities</a></li>
-              <li><a href="/docs" className="hover:text-green-500 transition">Documentation</a></li>
-              <li><a href="/tutorials" className="hover:text-green-500 transition">Tutorials</a></li>
-              <li><a href="/faq" className="hover:text-green-500 transition">FAQ</a></li>
+              <li>
+                <a href="/features" className="hover:text-green-500 transition">
+                  Capabilities
+                </a>
+              </li>
+              <li>
+                <a href="/docs" className="hover:text-green-500 transition">
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a href="/tutorials" className="hover:text-green-500 transition">
+                  Tutorials
+                </a>
+              </li>
+              <li>
+                <a href="/faq" className="hover:text-green-500 transition">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -73,11 +114,28 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-4">Resources</h4>
             <ul className="space-y-2 mb-6">
-              <li><a href="/blog" className="hover:text-green-500 transition">Blog</a></li>
-              <li><a href="/newsletter" className="hover:text-green-500 transition">Newsletter</a></li>
-              <li><a href="/support" className="hover:text-green-500 transition">Support</a></li>
-              <li><a href="/community" className="hover:text-green-500 transition">Community</a></li>
+              <li>
+                <a href="/blog" className="hover:text-green-500 transition">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="/newsletter" className="hover:text-green-500 transition">
+                  Newsletter
+                </a>
+              </li>
+              <li>
+                <a href="/support" className="hover:text-green-500 transition">
+                  Support
+                </a>
+              </li>
+              <li>
+                <a href="/community" className="hover:text-green-500 transition">
+                  Community
+                </a>
+              </li>
             </ul>
+
             <div className="flex gap-4 text-2xl">
               <a
                 href="https://x.com/MONTER34865"
@@ -88,7 +146,7 @@ export default function Footer() {
                 <FaTwitter />
               </a>
               <a
-                href="https://www.linkedin.com/in/metapeek-inc-3a7b2237b/"
+                href="https://www.linkedin.com/in/neuroscan-inc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-500 transition"
@@ -109,15 +167,22 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t-2 border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 px-6 md:px-12 lg:px-24">
-		  <div className="flex gap-6 mb-2 md:mb-0">
-			<a href="/privacy" className="hover:text-green-500 transition">Privacy</a>
-			<a href="/terms" className="hover:text-green-500 transition">Terms</a>
-			<a href="/security" className="hover:text-green-500 transition">Security</a>
-		  </div>
-		  <p className="text-center md:text-right text-green-600">
-			Copyright &copy; {new Date().getFullYear()} MetaPeek | All rights reserved.
-		  </p>
-		</div>
+          <div className="flex gap-6 mb-2 md:mb-0">
+            <a href="/app/privacy" className="hover:text-green-500 transition">
+              Privacy
+            </a>
+            <a href="/app/terms" className="hover:text-green-500 transition">
+              Terms
+            </a>
+            <a href="/app/security" className="hover:text-green-500 transition">
+              Security
+            </a>
+          </div>
+          <p className="text-center md:text-right text-green-600">
+            Copyright &copy; {new Date().getFullYear()} NeuroScan | All rights
+            reserved.
+          </p>
+        </div>
       </footer>
     </>
   );

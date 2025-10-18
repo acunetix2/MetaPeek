@@ -5,7 +5,7 @@ export default function About() {
   const owner = {
     name: "Iddy Chesire",
     role: "Cybersecurity, AI, Networking & MERN Developer",
-    bio: "Focused on building privacy-respecting open-source intelligence tools.",
+    bio: "Dedicated to building privacy-respecting open-source intelligence and digital analysis tools.",
     image: "https://api.dicebear.com/7.x/initials/svg?seed=Iddy%20Chesire",
   };
 
@@ -15,42 +15,40 @@ export default function About() {
       <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-green-300 dark:bg-green-900 opacity-20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-[-100px] right-[-100px] w-[300px] h-[300px] bg-orange-200 dark:bg-orange-800 opacity-20 rounded-full blur-3xl animate-pulse" />
 
-      {/* About MetaPeek Section */}
+      {/* About NeuroScan Section */}
       <div className="max-w-3xl w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl backdrop-blur-sm p-8 mb-12 z-10">
         <div className="flex items-center gap-3 mb-6">
           <InfoIcon className="w-6 h-6 text-green-600" />
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-            About MetaPeek
+            About NeuroScan
           </h1>
         </div>
+
         <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-          <strong className="text-green-700 dark:text-green-400">MetaPeek</strong> 
-          is a browser-based metadata analysis tool that allows users to extract and interpret hidden data within image files — such as camera details, timestamps, and GPS coordinates — without uploading files to external servers.
+          <strong className="text-green-700 dark:text-green-400">NeuroScan</strong> 
+          {" "}is an advanced browser-based analysis platform that enables users to extract hidden metadata from{" "}
+          <strong>images, videos, and documents</strong> all securely processed within the browser.
         </p>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-          Designed with privacy and transparency in mind, MetaPeek helps users
-          understand the unseen information contained in their digital photos.
-          Whether you’re a photographer, digital forensics analyst, or simply
-          curious, MetaPeek provides clear and actionable insights.
+          Built with privacy and transparency at its core, NeuroScan empowers users to understand the unseen layers of digital content — from camera settings and GPS coordinates in images, to codec and frame details in videos, and embedded author data or version history in documents.
         </p>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed font-semibold">
           Core Features:
         </p>
         <ul className="list-disc ml-6 mb-4 text-gray-700 dark:text-gray-300 space-y-1">
-          <li>Displays key metadata such as camera model, date, and resolution.</li>
-          <li>Maps photo locations using embedded GPS information.</li>
-          <li>Processes multiple files directly in the browser.</li>
-          <li>Provides privacy-first analysis suitable for investigations.</li>
-          <li>Helps verify image authenticity and detect tampering.</li>
+          <li>Extracts metadata from images, videos, and documents — all locally in the browser.</li>
+          <li>Visualizes geolocation data and timestamps for accurate digital tracing.</li>
+          <li>Detects file inconsistencies to help verify authenticity and detect tampering.</li>
+          <li>Generates structured and easy-to-read metadata summaries.</li>
+          <li>Supports privacy-first analysis without file uploads or data collection.</li>
         </ul>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          MetaPeek continues to evolve with planned enhancements like batch
-          analysis, exportable reports, and deeper metadata visualization tools.
-          Our mission is to make digital transparency accessible and secure for
-          everyone.
+          NeuroScan continues to evolve with planned enhancements including 
+          AI-powered content correlation, advanced report generation, and support for additional file formats. 
+          Its mission is simple — to make digital transparency accessible, ethical, and secure for everyone.
         </p>
       </div>
 

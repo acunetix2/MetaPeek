@@ -34,7 +34,7 @@ export default function LandingPage() {
       setShowLoading(true);
       const timer = setTimeout(() => {
         navigate("/app");
-      }, 3000); //loading screen before redirect..
+      }, 3000); //loading screen before redirect after successful login
       return () => clearTimeout(timer);
     }
   }, [isSignedIn, navigate]);
@@ -60,35 +60,41 @@ export default function LandingPage() {
       {/* Left */}
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-6">
-          <img
-            src={logo}
-            alt="Metapeek Logo"
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
-          />
-		<h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-700 tracking-tight select-none [font-family:'Phosire',sans-serif] animate-bounceGlow">
-		  MetaPeek
-		</h1>
-        </div>
-
+		  <a 
+			href="https://meta-peek.vercel.app" 
+			onClick={() => window.location.reload()}
+			rel="noopener noreferrer"
+			className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+		  >
+			<img
+			  src={logo}
+			  alt="NeuroScan Logo"
+			  className="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+			/>
+			<h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-700 tracking-tight select-none [font-family:'Phosire',sans-serif] animate-bounceGlow">
+			  NeuroScan
+			</h1>
+		  </a>
+		</div>
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-3 font-sans tracking-wide text-white text-1xl  md:text-base">
           <a
             href="#screenshots"
-            className="hover:text-green-400 transition-colors duration-300 "
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-1xl px-2 py-1 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
-            Demo
+            experience
           </a>
           <a
             href="#features"
-            className="hover:text-green-400 transition-colors duration-300 "
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-1xl px-2 py-1 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
-            Features
+            features
           </a>
           <a
             href="#howitworks"
-            className="hover:text-green-400 transition-colors duration-300 "
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-1xl px-2 py-1 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
-            Workflow
+            architecture
           </a>
         </nav>
       </div>
@@ -97,8 +103,8 @@ export default function LandingPage() {
       <div className="hidden md:flex items-center gap-4">
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-4 py-2 rounded-xl shadow-lg hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-300 ease-out active:scale-95 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
-              Sign In
+            <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-1xl text-white font-semibold px-4 py-1 rounded-xl shadow-lg hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-300 ease-out active:scale-95 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
+              sign in
             </button>
           </SignInButton>
         </SignedOut>
@@ -117,27 +123,27 @@ export default function LandingPage() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-cyan-800 flex flex-col items-center gap-6 py-4 md:hidden">
+        <nav className="absolute top-24 left-0 w-full bg-white border-t border-cyan-800 flex flex-col items-center gap-6 py-4 md:hidden">
           <a
             href="#screenshots"
             onClick={() => setIsOpen(false)}
-            className="hover:text-green-400 transition-colors duration-300 text-1xl"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xl font-semibold px-4 py-1 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
-            Demo
+            experience
           </a>
           <button
             href="#features"
             onClick={() => setIsOpen(false)}
-            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xl font-semibold px-4 py-2 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xl font-semibold px-4 py-1 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
-            Features
+            features
           </button>
           <a
             href="#howitworks"
             onClick={() => setIsOpen(false)}
-            className="hover:text-green-400 transition-colors duration-300 text-1xl"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xl font-semibold px-4 py-1 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
-            Workflow
+            architecture
           </a>
 
           {/* Button inside hamburger */}
@@ -145,7 +151,7 @@ export default function LandingPage() {
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-4 py-2 rounded-xl shadow-lg hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-300 ease-out active:scale-95 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
-                  Get Started
+                  sign in
                 </button>
               </SignInButton>
             </SignedOut>
@@ -169,16 +175,16 @@ export default function LandingPage() {
         <div className="flex gap-2 justify-center">
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="border border-green-500 px-3 py-1 text-sm rounded hover:bg-green-500 hover:text-white transition">
-                Get Started
+              <button className="border border-green-500 bg-cyan-500 px-3 py-1 text-sm rounded hover:bg-green-500 hover:text-white transition">
+                get started now
               </button>
             </SignInButton>
           </SignedOut>
           <a
             href="#features"
-            className="border border-green-500 px-3 py-1 text-sm rounded hover:bg-blue-700 hover:text-white transition"
+            className="border border-green-500 px-3 py-1 bg-cyan-500 text-sm rounded hover:bg-blue-700 hover:text-white transition"
           >
-            Learn More
+            Learn more
           </a>
         </div>
       </section>
@@ -193,11 +199,11 @@ export default function LandingPage() {
             </h3>
             <p className="text-white-500 mb-3 text-1xl ">
               Experience real-time visual forensics and metadata parsing.
-              MetaPeek detects hidden edits, flags anomalies, and surfaces the
+              NeuroScan detects hidden edits, flags anomalies, and surfaces the
               facts so you can act with confidence.
             </p>
             <p className="text-white-500 text-1xl">
-              From compliance reviews to investigative workflows, MetaPeek
+              From compliance reviews to investigative workflows, NeuroScan
               translates raw image data into reliable insights and shareable
               reports.
             </p>
@@ -207,7 +213,7 @@ export default function LandingPage() {
                   to="/app"
                   className="bg-green-500 px-3 py-1 text-sm rounded hover:bg-green-600 transition"
                 >
-                  Go to Dashboard
+                  dashboard
                 </Link>
               </SignedIn>
             </div>
@@ -236,7 +242,7 @@ export default function LandingPage() {
       {/* Features */}
       <section id="features" className="py-16 px-8 bg-gray-800">
         <h3 className="text-2xl font-bold text-center mb-10">
-          Why Choose MetaPeek?
+          Why Choose NeuroScan?
         </h3>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
@@ -285,7 +291,7 @@ export default function LandingPage() {
       {/* How It Works */}
       <section id="howitworks" className="py-16 px-8 bg-gray-800">
         <h3 className="text-2xl font-bold text-center mb-10">
-          How MetaPeek Works
+          How NeuroScan Works
         </h3>
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
           {[
@@ -350,14 +356,14 @@ export default function LandingPage() {
           Ready to Elevate Your Image Analysis?
         </h3>
         <p className="text-gray-200 mb-4 max-w-2xl mx-auto">
-          Try MetaPeek for faster reviews, defensible
+          Try NeuroScan for faster reviews, defensible
           findings, and clean reports.
         </p>
         <div className="flex justify-center gap-2">
           <SignedOut>
             <SignInButton mode="modal">
               <button className="bg-green-700 px-3 py-1 text-sm rounded hover:bg-green-800 transition">
-                Get Started Now
+                get started now
               </button>
             </SignInButton>
           </SignedOut>
@@ -377,7 +383,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 text-left">
           {/* Logo + CTA */}
           <div>
-            <h1 className="text-1xl font-bold text-green-500 mb-4">MetaPeek</h1>
+            <h1 className="text-1xl font-bold text-green-500 mb-4">NeuroScan</h1>
             <p className="mb-6">
               Uncover hidden details, detect anomalies, and gain actionable
               insights from images.
@@ -515,7 +521,7 @@ export default function LandingPage() {
             </a>
           </div>
           <p className="text-center md:text-right">
-            &copy; {new Date().getFullYear()} MetaPeek | All rights reserved.
+            &copy; {new Date().getFullYear()} NeuroScan | All rights reserved.
           </p>
         </div>
       </footer>

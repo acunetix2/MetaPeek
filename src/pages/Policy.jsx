@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
         <ul className="list-disc ml-5 mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base">
           <li>Provide and enhance our services.</li>
           <li>Send important updates or notifications (if opted in).</li>
-          <li>Personalize your experience on MetaPeek.</li>
+          <li>Personalize your experience on NeuroScan.</li>
           <li>Detect, prevent, and respond to fraud or abuse.</li>
         </ul>
       ),
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             We do not sell your personal information. We may share it only:
           </p>
           <ul className="list-disc ml-5 mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-            <li>With trusted service providers that help us operate MetaPeek.</li>
+            <li>With trusted service providers that help us operate NeuroScan.</li>
             <li>To comply with legal obligations or valid law enforcement requests.</li>
             <li>During business transfers, mergers, or acquisitions.</li>
           </ul>
@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
       content: (
         <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
           We may update this Privacy Policy from time to time. Continued use of
-          MetaPeek means you accept the revised policy. Please review it
+          NeuroScan means you accept the revised policy. Please review it
           periodically.
         </p>
       ),
@@ -84,10 +84,10 @@ export default function PrivacyPolicy() {
         <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
           For any questions about this Privacy Policy, contact us at{" "}
           <a
-            href="mailto:support@metapeek.com"
+            href="mailto:support@neuroscan.com"
             className="text-green-600 dark:text-green-400 underline hover:text-green-500 dark:hover:text-green-300 transition"
           >
-            support@metapeek.com
+            support@neuroscan.com
           </a>
           .
         </p>
@@ -100,12 +100,12 @@ export default function PrivacyPolicy() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10 flex-1">
         {/* Page Title */}
         <h1 className="text-2xl sm:text-3xl font-bold text-center text-green-700 dark:text-green-400 mb-4">
-          MetaPeek Privacy Policy
+          NeuroScan Privacy Policy
         </h1>
 
         {/* Intro Paragraph */}
         <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base text-center max-w-2xl mx-auto">
-          At MetaPeek, your privacy matters. This policy explains how we collect,
+          At NeuroScan, your privacy matters. This policy explains how we collect,
           use, and protect your information when using our services.
         </p>
 
@@ -127,8 +127,8 @@ export default function PrivacyPolicy() {
 
       {/* Footer */}
       <footer className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-center py-5 text-xs sm:text-sm mt-auto border-t border-gray-200 dark:border-gray-700">
-        <p>&copy; {new Date().getFullYear()} MetaPeek. All rights reserved.</p>
-        <p className="text-gray-600 dark:text-gray-300 mt-1">The MetaPeek Team</p>
+        <p>&copy; {new Date().getFullYear()} NeuroScan. All rights reserved.</p>
+        <p className="text-gray-600 dark:text-gray-300 mt-1">@NeuroScan Team</p>
       </footer>
     </div>
   );

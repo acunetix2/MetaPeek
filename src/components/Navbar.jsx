@@ -24,9 +24,9 @@ export default function Sidebar() {
       <aside className="hidden md:flex flex-col w-64 h-screen bg-white dark:bg-gray-900 shadow-lg fixed top-0 left-0 z-50">
         <div className="flex items-center justify-center h-20 border-b border-gray-200 dark:border-gray-700">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} alt="Metapeek Logo" className="w-10 h-10 rounded-full shadow-md" />
+            <img src={logo} alt="Neuroscan Logo" className="w-10 h-10 rounded-full shadow-md" />
             <span className="text-xl font-bold text-green-600 dark:text-green-400 tracking-wide">
-              METAPEEK
+              NeuroScan
             </span>
           </Link>
         </div>

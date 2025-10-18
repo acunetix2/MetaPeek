@@ -112,11 +112,11 @@ export default function Loading({ onFinish }) {
           <div className="absolute inset-12 sm:inset-16 rounded-full border border-cyan-400 bg-gradient-to-br from-cyan-950/50 to-blue-950/50 backdrop-blur-sm flex items-center justify-center">
             <div className="text-center">
               <div className="text-green-400 text-bold text-[8px] sm:text-xs mb-1 sm:mb-2 tracking-widest opacity-70">
-                INITIALIZING METAPEEK
+                Initiaizing NeuroScan
               </div>
               <div className="text-green-500 text-2xl sm:text-4xl font-bold">{progress}%</div>
-              <div className="text-green-400 text-[8px] sm:text-xs mt-1 sm:mt-2 tracking-widest opacity-70">
-                {progress <= 100 ? "INITIALIZING" : "COMPLETE"}
+              <div className="text-green-400 text-bold text-[8px] sm:text-xs mt-1 sm:mt-2 tracking-widest opacity-70">
+                {progress <= 100 ? "Initializing" : "Complete"}
               </div>
             </div>
           </div>
@@ -127,8 +127,8 @@ export default function Loading({ onFinish }) {
           {/* Data transmission panel */}
           <div className="border border-cyan-400/30 bg-slate-900/40 backdrop-blur-sm p-3 sm:p-4 rounded">
             <div className="flex items-center justify-between mb-2 sm:mb-3">
-              <div className="text-green-500 text-[8px] sm:text-xs tracking-widest">
-                METAPEEK FORENSIC TOOL 
+              <div className="text-green-500 text-bold text-[8px] sm:text-xs tracking-widest">
+                NeuroScan Forensics Tool 
               </div>
               <div className="flex space-x-1">
                 {[1, 2, 3].map((i) => (

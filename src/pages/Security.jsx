@@ -4,50 +4,46 @@ export default function SecurityPolicy() {
   const sections = [
     {
       title: "Data Encryption",
-      desc: "All sensitive data is encrypted in transit using SSL/TLS and at rest with industry-standard algorithms.",
+      desc: "All sensitive data is encrypted in transit if any using SSL/TLS and at rest with industry-standard encryption algorithms to ensure confidentiality and integrity.",
     },
     {
       title: "Access Control",
-      desc: "Access to personal and sensitive data is restricted to authorized personnel only. Role-based access controls and authentication prevent unauthorized access.",
+      desc: "Access to personal and sensitive data if any is restricted to authorized personnel only. Role-based access controls and authentication mechanisms prevent unauthorized access.",
     },
     {
       title: "Authentication & Account Security",
-      desc: "We recommend strong passwords and provide two-factor authentication (2FA) to enhance account security. Users must safeguard their login credentials.",
-    },
-    {
-      title: "Network & Infrastructure Security",
-      desc: "MetaPeek employs firewalls, intrusion detection systems, and continuous network monitoring to protect our infrastructure.",
+      desc: "We enforce strong password policies and support two-factor authentication (2FA) to enhance account security. Users are responsible for safeguarding their login credentials.",
     },
     {
       title: "Regular Security Audits",
-      desc: "Periodic security audits, vulnerability assessments, and penetration testing help us identify and fix potential risks.",
+      desc: "Routine security audits, vulnerability assessments, and penetration tests help us identify and remediate potential threats proactively.",
     },
     {
       title: "Data Backup & Recovery",
-      desc: "Regular backups ensure data recovery in case of accidental loss, system failure, or disaster.",
+      desc: "We perform regular encrypted backups to ensure data recovery if any in case of accidental loss, corruption, or system failure.",
     },
     {
       title: "User Responsibilities",
-      desc: "Users should protect their accounts, avoid sharing passwords, and report suspicious activity to MetaPeek support immediately.",
+      desc: "Users must protect their accounts, avoid sharing credentials, and promptly report suspicious activities to our support team.",
     },
     {
       title: "Incident Response",
-      desc: "In the event of a security incident, we follow a documented response plan to contain, investigate, and mitigate impacts, notifying affected users as required.",
+      desc: "In the event of a security incident, we follow a documented response plan to contain, investigate, and mitigate the issue, notifying affected users as required by law.",
     },
     {
       title: "Continuous Improvement",
-      desc: "Security is an ongoing process. We continuously review and improve our policies, practices, and technologies.",
+      desc: "Our security framework evolves continuously. We review and upgrade our policies, technologies, and best practices regularly to maintain a high level of protection.",
     },
     {
       title: "Contact Us",
       desc: (
         <>
-          For security-related concerns, contact us at{" "}
+          For security-related inquiries or incident reports, please contact us at{" "}
           <a
-            href="mailto:security@metapeek.com"
-            className="text-green-600 dark:text-green-400 underline hover:text-green-500 dark:hover:text-green-300 transition"
+            href="mailto:security@neuroscan.com"
+            className="text-green-600 dark:text-green-400 underline hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
           >
-            security@metapeek.com
+            security@neuroscan.com
           </a>
           .
         </>
@@ -57,16 +53,17 @@ export default function SecurityPolicy() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 text-gray-800 dark:text-gray-100 flex flex-col transition-colors duration-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10 flex-1">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-10 flex-1">
+        
         {/* Page Title */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-center text-green-700 dark:text-green-400 mb-4">
-          MetaPeek Security Policy
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-green-700 dark:text-green-400 tracking-tight">
+          NeuroScan Security Policy
         </h1>
 
         {/* Intro Paragraph */}
-        <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base text-center max-w-2xl mx-auto">
-          At MetaPeek, we prioritize the protection of your data. This Security Policy outlines
-          the measures we take to keep your information safe and secure.
+        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg text-center max-w-2xl mx-auto leading-relaxed">
+          At NeuroScan, we prioritize your data security. This Security Policy outlines our
+          technical and organizational measures to protect user information and maintain trust.
         </p>
 
         {/* Policy Sections */}
@@ -74,9 +71,9 @@ export default function SecurityPolicy() {
           {sections.map((item, index) => (
             <section
               key={index}
-              className="bg-white dark:bg-gray-800 p-5 sm:p-7 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
+              className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300"
             >
-              <h2 className="text-lg sm:text-xl font-semibold text-green-700 dark:text-green-400 mb-2">
+              <h2 className="text-lg sm:text-xl font-semibold text-green-700 dark:text-green-400 mb-3">
                 {item.title}
               </h2>
               <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
@@ -89,8 +86,12 @@ export default function SecurityPolicy() {
 
       {/* Footer */}
       <footer className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-center py-5 text-xs sm:text-sm mt-auto border-t border-gray-200 dark:border-gray-700">
-        <p>&copy; {new Date().getFullYear()} MetaPeek. All rights reserved.</p>
-        <p className="text-gray-600 dark:text-gray-300 mt-1">The MetaPeek Team</p>
+        <p>
+          &copy; {new Date().getFullYear()}{" "}
+          <span className="font-semibold text-green-600 dark:text-green-400">NeuroScan</span>. All
+          rights reserved.
+        </p>
+        <p className="text-gray-600 dark:text-gray-300 mt-1">@NeuroScan Team</p>
       </footer>
     </div>
   );

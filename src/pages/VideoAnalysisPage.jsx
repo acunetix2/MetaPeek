@@ -170,7 +170,7 @@ export default function VideoAnalysisPage() {
       {/* HEADER */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
         <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-          MetaPeek Video Analyzer
+          NeuroScan Video Analysis Branch
         </h1>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Upload and analyze your video in-browser. Instantly extract metadata

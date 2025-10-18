@@ -203,13 +203,13 @@ export default function HomePage() {
       {/* Intro */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl text-left">
         <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-          Welcome to MetaPeek
+          Welcome to NeuroScan
         </h1>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          MetaPeek is an image metadata scanner designed to help you uncover 
+          NeuroScan is an image metadata scanner designed to help you uncover 
           the hidden details behind your images. Whether you're a digital forensics 
           analyst, a photographer reviewing camera information, or a developer 
-          validating media integrity, MetaPeek provides a clear, structured view of 
+          validating media integrity, NeuroScan provides a clear, structured view of 
           the metadata contained within your files.
         </p>
         <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">
