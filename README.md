@@ -121,7 +121,7 @@ See [LICENSE](./LICENSE) for details.
 For support or collaboration:
 
 📧 Email: [iddychesire098@gmail.com](mailto:iddychesire098@gmail.com)
-🌐 Website: [https://meta-peek.vercel.app](https://meta-peek.vercel.app)
+🌐 Website: [https://neuroscanpro.vercel.app](https://neuroscanpro.vercel.app)
 
 ---
 
@@ -129,5 +129,7 @@ For support or collaboration:
 
 *Note: Still under development!*
 
-```
-Happy Hacking!!! );
+  ```bash 
+	Happy Hacking!!! );
+  ```
+

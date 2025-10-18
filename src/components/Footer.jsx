@@ -154,7 +154,7 @@ export default function Footer() {
                 <FaLinkedin />
               </a>
               <a
-                href="https://github.com/acunetix2/metapeek"
+                href="https://github.com/acunetix2/NeuroScan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-500 transition"
