@@ -56,18 +56,18 @@ export default function LandingPage() {
   return (
     <div className="bg-gray-900 text-white font-sans">
       {/* Navbar */}
-		  <header className="flex justify-between items-center px-8 py-2 border-b border-gray-800 shadow-md bg-gray-900 sticky top-0 z-50">
+		  <header className="flex justify-between items-center px-8 py-4 border-b border-cyan-800 shadow-md bg-gray-900 sticky top-0 z-50">
       {/* Left */}
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <img
             src={logo}
             alt="Metapeek Logo"
-            className="w-2 h-2 md:w-8 md:h-8 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-md transform transition-transform duration-300 ease-in-out hover:scale-110"
           />
-          <h1 className="text-2xl font-bold text-green-600 dark:text-green-400">
-            MetaPeek
-          </h1>
+		<h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-700 tracking-tight select-none [font-family:'Phosire',sans-serif] animate-bounceGlow">
+		  MetaPeek
+		</h1>
         </div>
 
         {/* Desktop Nav */}
@@ -97,7 +97,7 @@ export default function LandingPage() {
       <div className="hidden md:flex items-center gap-4">
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="bg-blue-500 text-gray-900 font-semibold px-2 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
+            <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-4 py-2 rounded-xl shadow-lg hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-300 ease-out active:scale-95 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
               Sign In
             </button>
           </SignInButton>
@@ -117,7 +117,7 @@ export default function LandingPage() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-gray-800 flex flex-col items-center gap-6 py-4 md:hidden">
+        <nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-cyan-800 flex flex-col items-center gap-6 py-4 md:hidden">
           <a
             href="#screenshots"
             onClick={() => setIsOpen(false)}
@@ -128,7 +128,7 @@ export default function LandingPage() {
           <button
             href="#features"
             onClick={() => setIsOpen(false)}
-            className="hover:text-green-400 transition-colors duration-300  text-1xl"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xl font-semibold px-4 py-2 rounded-xl shadow-md hover:text-green-400 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300 ease-out focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400"
           >
             Features
           </button>
@@ -144,7 +144,7 @@ export default function LandingPage() {
           <div className="mt-4">
             <SignedOut>
               <SignInButton mode="modal">
-                <button className="bg-green-500 text-gray-900 font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-green-600 hover:scale-105 transition-transform transition-colors duration-300">
+                <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-4 py-2 rounded-xl shadow-lg hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-300 ease-out active:scale-95 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
                   Get Started
                 </button>
               </SignInButton>

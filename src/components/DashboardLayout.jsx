@@ -71,9 +71,9 @@ export default function DashboardLayout() {
               alt="MetaPeek Logo"
               className="w-14 h-14 rounded-full shadow-md mb-2"
             />
-            <h1 className="text-xl font-bold text-green-600 dark:text-green-400 tracking-tight">
-              MetaPeek
-            </h1>
+            <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-700 tracking-tight select-none [font-family:'Phosire',sans-serif] animate-bounceGlow">
+			  MetaPeek
+			</h1>
             <p className="text-xs text-green-600 dark:text-blue-500">
               Trusted • Secure • Metadata
             </p>
