@@ -123,7 +123,7 @@ export default function LandingPage() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <nav className="absolute top-24 left-0 w-full bg-white border-t border-cyan-800 flex flex-col items-center gap-6 py-4 md:hidden">
+        <nav className="absolute top-24 left-0 w-full bg-gray-900 border-t border-cyan-800 flex flex-col items-center gap-6 py-4 md:hidden">
           <a
             href="#screenshots"
             onClick={() => setIsOpen(false)}
@@ -478,14 +478,14 @@ export default function LandingPage() {
                 <FaTwitter />
               </a>
               <a
-                href="https://www.linkedin.com/in/metapeek-inc-3a7b2237b/"
+                href="https://www.linkedin.com/in/neuroscan-inc-3a7b2237b/"
                 target="_blank"
                 className="hover:text-green-500 transition"
               >
                 <FaLinkedin />
               </a>
               <a
-                href="https://github.com/acunetix2/metapeek"
+                href="https://github.com/acunetix2/NeuroScan"
                 target="_blank"
                 className="hover:text-green-500 transition"
               >
