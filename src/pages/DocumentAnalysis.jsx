@@ -4,10 +4,12 @@ import DocMetadataCard from "@/components/DocMetadataCard";
 import ReactJson from "react-json-view";
 import * as pdfjsLib from "pdfjs-dist";
 import mammoth from "mammoth";
+import JSZip from "jszip";
+import { xml2js } from "xml-js";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle, XCircle, Info } from "lucide-react";
 
-// Configure PDF.js worker
+// ✅ Configure PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 /**
@@ -21,14 +23,96 @@ async function computeFileHash(file) {
     .join("");
 }
 
+/**
+ * Extract text content from supported document types
+ */
+async function extractTextFromFile(file) {
+  const ext = file.name.split(".").pop().toLowerCase();
+
+  // 📝 Plain text
+  if (["txt", "log"].includes(ext)) {
+    return await file.text();
+  }
+
+  // 📄 PDF
+  if (ext === "pdf") {
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+      let text = "";
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        text += content.items.map((item) => item.str).join(" ") + " ";
+      }
+
+      pdf.cleanup();
+      pdf.destroy();
+      return text.trim();
+    } catch (err) {
+      console.error("PDF parsing error:", err);
+      throw new Error(
+        "Error reading PDF file — it may be encrypted or use unsupported encoding."
+      );
+    }
+  }
+
+  // 🧾 DOCX
+  if (ext === "docx") {
+    try {
+      const buffer = await file.arrayBuffer();
+      const result = await mammoth.extractRawText({ arrayBuffer: buffer });
+      return result.value || "";
+    } catch (err) {
+      console.error("DOCX parsing error:", err);
+      throw new Error("Error reading DOCX file — ensure it’s a valid Word file.");
+    }
+  }
+
+  // 🎞️ PPTX (PowerPoint)
+  if (ext === "pptx") {
+    try {
+      const buffer = await file.arrayBuffer();
+      const zip = await JSZip.loadAsync(buffer);
+
+      let text = "";
+      const slideFiles = Object.keys(zip.files).filter((name) =>
+        name.match(/ppt\/slides\/slide\d+\.xml/)
+      );
+
+      for (const slide of slideFiles) {
+        const xml = await zip.files[slide].async("text");
+        const json = xml2js(xml, { compact: true });
+        const texts = [];
+        const extractText = (obj) => {
+          if (obj.t && obj.t._text) texts.push(obj.t._text);
+          for (let key in obj) {
+            if (typeof obj[key] === "object") extractText(obj[key]);
+          }
+        };
+        extractText(json);
+        text += texts.join(" ") + " ";
+      }
+
+      return text.trim();
+    } catch (err) {
+      console.error("PPTX parsing error:", err);
+      throw new Error("Error reading PPTX file — possibly corrupted or invalid format.");
+    }
+  }
+
+  throw new Error("Unsupported file format. Try PDF, DOCX, PPTX, or TXT.");
+}
+
 export default function DocumentAnalysis() {
   const [file, setFile] = useState(null);
   const [metadata, setMetadata] = useState(null);
   const [showRaw, setShowRaw] = useState(false);
   const [scanning, setScanning] = useState(false);
-  const [message, setMessage] = useState(null); // { type: "success" | "error" | "info", text: string }
+  const [message, setMessage] = useState(null); // { type, text }
 
-  // Auto-hide messages after 5s
+  // Auto-hide messages
   useEffect(() => {
     if (message) {
       const timer = setTimeout(() => setMessage(null), 5000);
@@ -37,44 +121,17 @@ export default function DocumentAnalysis() {
   }, [message]);
 
   /**
-   * Extracts text content from supported document formats.
-   */
-  const extractTextFromFile = async (file) => {
-    const ext = file.name.split(".").pop().toLowerCase();
-
-    if (ext === "txt" || ext === "log") return await file.text();
-
-    if (ext === "pdf") {
-      const pdf = await pdfjsLib.getDocument(await file.arrayBuffer()).promise;
-      let text = "";
-      for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const content = await page.getTextContent();
-        text += content.items.map((s) => s.str).join(" ") + " ";
-      }
-      return text;
-    }
-
-    if (ext === "docx") {
-      const buffer = await file.arrayBuffer();
-      const result = await mammoth.extractRawText({ arrayBuffer: buffer });
-      return result.value;
-    }
-
-    throw new Error("Unsupported file format");
-  };
-
-  /**
-   * Analyze document for metadata, links, and potential risks.
+   * Analyze document content and extract intelligence
    */
   const analyzeDocument = async (file) => {
     setScanning(true);
-    setMessage({ type: "info", text: "Analyzing document..." });
-    try {
-      const textContent = await extractTextFromFile(file);
+    setMessage({ type: "info", text: "🔍 Analyzing document..." });
 
-      const wordCount = textContent.split(/\s+/).filter(Boolean).length;
-      const links = textContent.match(/https?:\/\/[^\s"]+/g) || [];
+    try {
+      const text = await extractTextFromFile(file);
+
+      const wordCount = text.split(/\s+/).filter(Boolean).length;
+      const links = text.match(/https?:\/\/[^\s"]+/g) || [];
       const suspiciousLinks = links.filter(
         (url) =>
           !url.startsWith("https://") ||
@@ -82,7 +139,7 @@ export default function DocumentAnalysis() {
           url.includes("tinyurl")
       );
       const emails =
-        textContent.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}/g) || [];
+        text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}/g) || [];
 
       const hash = await computeFileHash(file);
 
@@ -93,7 +150,7 @@ export default function DocumentAnalysis() {
         Last_Modified: new Date(file.lastModified).toLocaleString(),
         SHA256_Hash: hash,
         Word_Count: wordCount,
-        Detected_Links: links.length,
+        Links_Found: links.length,
         Suspicious_Links: suspiciousLinks.length,
         Emails_Found: emails.length,
         Risk_Level: calculateRisk(suspiciousLinks.length, emails.length),
@@ -107,45 +164,35 @@ export default function DocumentAnalysis() {
         text: `✅ Document analyzed successfully: ${file.name}`,
       });
     } catch (err) {
-      console.error("❌ Error analyzing document:", err);
+      console.error("❌ Document analysis error:", err);
       setMessage({
         type: "error",
-        text:
-          err.message === "Unsupported file format"
-            ? "Unsupported file format. Please upload PDF, DOCX, or TXT."
-            : "Error reading document metadata. Please check file integrity.",
+        text: err.message || "Unknown error during document analysis.",
       });
     } finally {
       setScanning(false);
     }
   };
 
-  /**
-   * Estimate document risk level
-   */
+  /** Estimate risk level */
   const calculateRisk = (suspicious, emails) => {
-    let score = suspicious * 20 + emails * 5;
-    if (score > 100) score = 100;
+    const score = suspicious * 20 + emails * 5;
     if (score === 0) return "Low";
     if (score <= 50) return "Moderate";
     return "High";
   };
 
-  /**
-   * Detect document category
-   */
+  /** Detect file type category */
   const detectFileType = (name) => {
     const ext = name.split(".").pop().toLowerCase();
-    if (["pdf"].includes(ext)) return "Portable Document (PDF)";
+    if (ext === "pdf") return "Portable Document Format (PDF)";
     if (["docx", "doc"].includes(ext)) return "Word Document";
     if (["pptx", "ppt"].includes(ext)) return "PowerPoint Presentation";
-    if (["txt", "log"].includes(ext)) return "Plain Text / Log File";
+    if (["txt", "log"].includes(ext)) return "Plain Text File";
     return "Unknown Type";
   };
 
-  /**
-   * Reset analysis
-   */
+  /** Reset all states */
   const handleClear = () => {
     setFile(null);
     setMetadata(null);
@@ -153,9 +200,7 @@ export default function DocumentAnalysis() {
     setMessage({ type: "info", text: "🧹 Cleared — document data reset." });
   };
 
-  /**
-   * Render modern banner for messages
-   */
+  /** Render notification banner */
   const renderMessage = () => {
     if (!message) return null;
     const styles = {
@@ -181,21 +226,21 @@ export default function DocumentAnalysis() {
 
   return (
     <div className="w-full p-4 md:p-6 space-y-8 text-left">
-      {/* 🔹 Header */}
+      {/* Header */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
         <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-          NeuroScan Document Analysis Branch
+          🧠 NeuroScan Document Analysis Branch
         </h1>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          Upload a document to extract metadata, detect links, and analyze
-          potential risks. Supports PDF, DOCX, and TXT formats.
+          Upload a document to extract metadata, hidden text, and potential risks.
+          Supports <b>PDF</b>, <b>DOCX</b>, <b>PPTX</b>, and <b>TXT</b> formats.
         </p>
       </div>
 
-      {/* 🔹 Message Banner */}
+      {/* Notification */}
       {message && renderMessage()}
 
-      {/* 🔹 Upload Section */}
+      {/* Upload */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
         <UploadDocumentArea
           onDocumentSelect={(selected) => {
@@ -213,37 +258,30 @@ export default function DocumentAnalysis() {
             >
               {scanning ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Scanning...
+                  <Loader2 className="w-4 h-4 animate-spin" /> Scanning...
                 </>
               ) : (
                 "Scan"
               )}
             </Button>
-
-            <Button
-              variant="destructive"
-              onClick={handleClear}
-              className="gap-2"
-            >
+            <Button variant="destructive" onClick={handleClear} className="gap-2">
               Clear
             </Button>
           </div>
         )}
       </div>
 
-      {/* 🔹 Scanning Indicator */}
+      {/* Scanning animation */}
       {scanning && (
         <p className="text-sm mt-2 text-gray-500 animate-pulse">
-          Scanning document for metadata and links...
+          Scanning document for metadata and text content...
         </p>
       )}
 
-      {/* 🔹 Analysis Results */}
+      {/* Results */}
       {metadata && (
         <div className="flex flex-col gap-6 w-full">
           <DocMetadataCard metadata={metadata} />
-
           <Button
             onClick={() => setShowRaw(!showRaw)}
             className="w-[200px] bg-gray-700 hover:bg-gray-900 text-white rounded-xl"
