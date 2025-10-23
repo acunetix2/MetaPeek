@@ -9,7 +9,7 @@ import { xml2js } from "xml-js";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle, XCircle, Info } from "lucide-react";
 
-// ✅ Configure PDF.js worker
+// Configure PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 /**
@@ -29,12 +29,12 @@ async function computeFileHash(file) {
 async function extractTextFromFile(file) {
   const ext = file.name.split(".").pop().toLowerCase();
 
-  // 📝 Plain text
+  //  Plain text
   if (["txt", "log"].includes(ext)) {
     return await file.text();
   }
 
-  // 📄 PDF
+  //  PDF
   if (ext === "pdf") {
     try {
       const arrayBuffer = await file.arrayBuffer();
@@ -58,7 +58,7 @@ async function extractTextFromFile(file) {
     }
   }
 
-  // 🧾 DOCX
+  //  DOCX
   if (ext === "docx") {
     try {
       const buffer = await file.arrayBuffer();
@@ -66,11 +66,11 @@ async function extractTextFromFile(file) {
       return result.value || "";
     } catch (err) {
       console.error("DOCX parsing error:", err);
-      throw new Error("Error reading DOCX file — ensure it’s a valid Word file.");
+      throw new Error("Error reading DOCX file ensure it’s a valid Word file.");
     }
   }
 
-  // 🎞️ PPTX (PowerPoint)
+  // ️ PPTX (PowerPoint)
   if (ext === "pptx") {
     try {
       const buffer = await file.arrayBuffer();
@@ -161,10 +161,10 @@ export default function DocumentAnalysis() {
       setMetadata(metadataExtracted);
       setMessage({
         type: "success",
-        text: `✅ Document analyzed successfully: ${file.name}`,
+        text: `Document analyzed successfully: ${file.name}`,
       });
     } catch (err) {
-      console.error("❌ Document analysis error:", err);
+      console.error("Document analysis error:", err);
       setMessage({
         type: "error",
         text: err.message || "Unknown error during document analysis.",
@@ -197,7 +197,7 @@ export default function DocumentAnalysis() {
     setFile(null);
     setMetadata(null);
     setShowRaw(false);
-    setMessage({ type: "info", text: "🧹 Cleared — document data reset." });
+    setMessage({ type: "info", text: "Cleared" });
   };
 
   /** Render notification banner */
@@ -229,7 +229,7 @@ export default function DocumentAnalysis() {
       {/* Header */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
         <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-          🧠 NeuroScan Document Analysis Branch
+          NeuroScan Document Analysis Branch
         </h1>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Upload a document to extract metadata, hidden text, and potential risks.
@@ -286,7 +286,7 @@ export default function DocumentAnalysis() {
             onClick={() => setShowRaw(!showRaw)}
             className="w-[200px] bg-gray-700 hover:bg-gray-900 text-white rounded-xl"
           >
-            {showRaw ? "Hide JSON" : "View JSON"}
+            {showRaw ? "Hide" : "Json"}
           </Button>
 
           {showRaw && (

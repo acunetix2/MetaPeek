@@ -8,7 +8,7 @@ export default function FooterWrapper() {
   const [activePage, setActivePage] = useState(null);
 
   const handleFooterClick = (e) => {
-    const target = e.target.closest("a"); // ensure we get the <a> tag
+    const target = e.target.closest("a"); 
     if (!target) return;
 
     const href = target.getAttribute("href");
@@ -17,7 +17,7 @@ export default function FooterWrapper() {
       if (href === "/app/privacy") setActivePage("privacy");
       else if (href === "/app/terms") setActivePage("terms");
       else if (href === "/app/security") setActivePage("security");
-      window.scrollTo({ top: 0, behavior: "smooth" }); // optional: scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" }); 
     }
   };
 

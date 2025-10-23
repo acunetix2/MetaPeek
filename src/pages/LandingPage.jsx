@@ -61,7 +61,7 @@ export default function LandingPage() {
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-6">
 		  <a 
-			href="https://meta-peek.vercel.app" 
+			href="https://neuroscanpro.vercel.app" 
 			onClick={() => window.location.reload()}
 			rel="noopener noreferrer"
 			className="flex items-center gap-3 hover:opacity-90 transition-opacity"
